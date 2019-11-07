@@ -1,94 +1,123 @@
 # Lovelace UI
-## Themes
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/main.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/thermo.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/alarm.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/lights.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/tesla.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/solar.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool1.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool2.PNG) 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool3.PNG) 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool4.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/bbq.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/beer.PNG)
+
 ## Custom Components
 * [Custom Compact Header](https://github.com/maykar/compact-custom-header)
   * Cards shown based on User Account
   * Swipe Enabeled
-* [Mini-Graph Card](https://github.com/kalkih/mini-graph-card)
-
+* [Mini-Graph-Card](https://github.com/kalkih/mini-graph-card)
+* [vertical-stack-in-card](https://github.com/custom-cards/vertical-stack-in-card)
 ***
 # Devices
 ## Hardware
 ### Pi
-* R-Pi 3
+* [R-Pi 3B](https://amzn.to/2rnnl6c)
 ### Z-Wave Stick
-* Aeotec Z-Stick V5
+* [Aeotec Z-Stick V5](https://amzn.to/2NqHHUJ)
 ### Zigbee Stick
-
+* [Elelabs ZigBee USB adapter](https://www.tindie.com/products/Elelabs/elelabs-zigbee-usb-adapter/)
+### WiFi
+* [TP-Link Deco M5](https://amzn.to/36JcHqv)
 
 ## Display
 * Nexus 10
   * WiFi
   * Fully Kiosk
   * Lananouncer
+  * [Low Profile Charger](https://amzn.to/2oWbtXU)
+  * [Mount](https://amzn.to/2NTvd7b)
+  * [Magnetic Cable](https://amzn.to/2NQUyON)
 ## Lights
 ### White
-* [GE]() (4x)
+* [GE Link](https://amzn.to/2qth5cK) (5x)
   * Zigbee
 * [GE Flood]()
   * Zigbee
-* [TP-Link]()
+* [Cree](https://amzn.to/2PXFQse) 
+  * Zigbee
+* [TP-Link](https://amzn.to/33mXCc9)
   * WiFi
 ### Color
-* [LED Strip]() 
+* [LED Strip](https://amzn.to/2NpIRQm) 
   * Flux_LED
   * WiFi
-* [Color 1]()
+* [Smart LED Light Bulb](https://amzn.to/2K04yo5)
   * WiFi
-* [Color 2]() (2x)
+* [Aoycocr(6500K) 7.5W A19](https://amzn.to/2Cm3gPI) (2x)
   * WiFi
   
 ## Sensors
 ### Door/window
-* [GoControl]()
+* [Linear WADWAZ-1](https://amzn.to/2Q2Zsv7) (7x)
   * Z-Wave
   
 ## Thermostats
-* [GoControl]()
+* [Linear GC-TBZ48](https://amzn.to/2JWrVhZ) (2x)
   * Z-Wave
 
 ## Motion
-* [Norteck]()
+* [Ecolink Motion Detector](https://amzn.to/2Nqtsiu)
   * Z-Wave
 
 ## Motion/Temp
-* [GoControl]() (2x)
-* D1 Mini (4x)
+* [Linear WAPIRZ-1](https://amzn.to/2WRkpul) (2x)
+* [D1 Mini](https://amzn.to/2WU9QXt) (4x)
   * WiFi
-  * Motion
-  * Temp/Humidity
+  * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
+  * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
   * ESPHome
   * `code`
 
 ## Multisensor
-* [Aeotec Multisensor 6]()
+* [Aeotec ZW100 Multisensor 6](https://amzn.to/33tEysL)
+* [Ring](https://amzn.to/32lQ8EY)
 
 ## Switches
 * D1 Mini
   * WiFi
-  * Dual Relay Shield
+  * [Dual Relay Shield](https://amzn.to/2NqGlcB)
   * ESPHome
   * `code`
-* Sonoff 4Ch Pro
+* [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
   * WiFi
   * Tasmota
+* [Switchmate](https://amzn.to/2NNGYMl) (2x)
+  * Bluetooth
   
 ## Outlets
 * [TP-Link]()
   * WiFi
-* [Outdoor]()
+* [Amzdest Outdoor Smart Outlet](https://amzn.to/2K0sffR)
   * Z-Wave
+* [Leviton DZPA1-1LW, Appliance Module](https://amzn.to/2PWmjIE)
+* [Leviton DZPD3-1LW, Lamp Module](https://amzn.to/2NOtDDs)
 
 ## Siren
-* [GoControl]()
+* [Linear WA105DBZ-1 Siren](https://amzn.to/2Q346Jc)
   * Z-Wave
 
-## Voice Control
-### Amazon Echo
+## Voice Control/Media
+### [Amazon Echo](https://amzn.to/34Ds3Lj)
+  * WiFi
+### [Amazon Fire Stick](https://amzn.to/2p2bR7q) (3x)
   * WiFi
 ### Google Home Mini
   * WiFi
   
+## Vacuume
+* [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
+
 ## BBQ
 * [Heatermeter](https://github.com/CapnBry/HeaterMeter/wiki)
   * WiFi
@@ -151,4 +180,5 @@
 ***
 # Comming up
 ### Cameras
+### [TP-Link Switch](https://amzn.to/2K0kd6z)
 ### [Git Backup](https://www.home-assistant.io/docs/ecosystem/backup/backup_github/)
