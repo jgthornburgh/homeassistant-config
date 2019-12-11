@@ -42,7 +42,7 @@
 ### White
 * [GE Link](https://amzn.to/2qth5cK) (5x)
   * Zigbee
-* [GE Flood]()
+* [GE Flood](https://amzn.to/2rFwqaO)
   * Zigbee
 * [Cree](https://amzn.to/2PXFQse) 
   * Zigbee
