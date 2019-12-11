@@ -102,6 +102,7 @@
   * Z-Wave
 * [Leviton DZPA1-1LW, Appliance Module](https://amzn.to/2PWmjIE)
 * [Leviton DZPD3-1LW, Lamp Module](https://amzn.to/2NOtDDs)
+* [Aoycocr Mini WIFI Switch](https://amzn.to/2PyLaAt) (4x)
 
 ## Siren
 * [Linear WA105DBZ-1 Siren](https://amzn.to/2Q346Jc)
@@ -123,6 +124,11 @@
   * WiFi
   * Template Sensor
   * `code`
+## Cameras (yet to be installed)
+* [Reolink 8CH 5MP PoE Home Security Camera System](https://amzn.to/2YKa0Bt)
+  * 20-5MP Bullet Camera (2X)
+  * 420-5MP Dome Camera (2X)
+* [Reolink 420-5MP Dome Camera](https://amzn.to/2LKFEcO) (2X)
 
 ***
 # Integrations
@@ -179,6 +185,5 @@
 
 ***
 # Comming up
-### Cameras
 ### [TP-Link Switch](https://amzn.to/2K0kd6z)
 ### [Git Backup](https://www.home-assistant.io/docs/ecosystem/backup/backup_github/)
