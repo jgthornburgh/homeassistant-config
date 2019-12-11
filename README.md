@@ -80,7 +80,7 @@
   * `code`
 
 ## Multisensor
-* [Aeotec ZW100 Multisensor 6](https://amzn.to/33tEysL)
+* [Aeotec ZW100 Multisensor 6](https://amzn.to/2qMCRso)
 * [Ring](https://amzn.to/32lQ8EY)
 
 ## Switches
@@ -95,8 +95,8 @@
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
   
-## Outlets
-* [TP-Link]()
+## Plugs
+* [TP-Link](https://amzn.to/2Pd0aVC)
   * WiFi
 * [Amzdest Outdoor Smart Outlet](https://amzn.to/2K0sffR)
   * Z-Wave
