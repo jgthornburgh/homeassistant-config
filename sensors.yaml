@@ -1,0 +1,194 @@
+  - platform: yr
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+  - platform: darksky
+    api_key: !secret ds_a
+    latitude: *** 
+    longitude: ***
+    forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+    hourly_forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    monitored_conditions:
+      - summary
+      - hourly_summary
+      - daily_summary
+      - minutely_summary
+      - icon
+      - nearest_storm_distance
+      - temperature
+      - humidity
+      - temperature_high
+      - temperature_low
+      - moon_phase
+  - platform: ring
+  - platform: rest
+    name: envoy2
+    json_attributes:
+      - wattHoursToday
+      - wattHoursSevenDays
+      - wattHoursLifetime
+      - wattsNow
+    resource: http://192.168.0.103/api/v1/production
+  - platform: template
+    sensors:
+      wtoday:
+        friendly_name: 'KWh Today'
+        value_template: '{{ (states.sensor.envoy2.attributes ["wattHoursToday"]/1000) | round(2)  }}'
+        unit_of_measurement: "KWh"
+      peaktoday:
+        friendly_name: 'Peak KWh Today'
+        value_template: '{{ (states.sensor.envoy2.attributes ["wattHoursToday"]/1000) | round(2)  }}'
+        unit_of_measurement: "KWh"
+      wsdays:
+        friendly_name: 'KWh Last Seven Days'
+        value_template: '{{ (states.sensor.envoy2.attributes ["wattHoursSevenDays"]/1000) | round(2) }}'
+        unit_of_measurement: "KWh"
+      wlife:
+        friendly_name: 'KWh Lifetime'
+        value_template: '{{ (states.sensor.envoy2.attributes ["wattHoursLifetime"]/1000) | round(2)  }}'
+        unit_of_measurement: "KWh"
+      wnow:
+        friendly_name: 'KW Now'
+        value_template: '{{ (states.sensor.envoy2.attributes ["wattsNow"]/1000) | round(2)  }}'
+        unit_of_measurement: "KW"
+  - platform: statistics
+    entity_id: sensor.wtoday
+    name: wtodaystats
+    max_age:
+      hours: 24
+  - platform: statistics
+    entity_id: sensor.wnow
+    name: wnowstats
+    max_age:
+      hours: 24
+  - platform: rest
+    name: hm_set
+    resource: http://192.168.0.129/luci/lm/hmstatus
+    value_template: "{{value_json['set']}}"
+  - platform: rest
+    name: hm_pit
+    resource: http://192.168.0.129/luci/lm/hmstatus
+    value_template: "{{value_json.temps[0].c }}"
+  - platform: rest
+    name: hm_probe1
+    resource: http://192.168.0.129/luci/lm/hmstatus
+    value_template: "{{value_json.temps[1].c }}"
+  - platform: rest
+    name: hm_probe2
+    resource: http://192.168.0.129/luci/lm/hmstatus
+    value_template: "{{value_json.temps[2].c }}"
+  - platform: rest
+    name: hm_probe3
+    resource: http://192.168.0.129/luci/lm/hmstatus
+    value_template: "{{value_json.temps[3].c }}"
+  - platform: moon
+  - platform: template
+    sensors:
+      pumpstatus:
+        friendly_name: "Pool Pump Staus"
+        value_template: >-
+          {% if is_state('switch.p_h', 'on') %}
+            High
+          {% elif is_state('switch.p_m', 'on') %}
+            Medium
+          {% elif is_state('switch.p_l', 'on') %}
+            Low
+          {% elif is_state('switch.p_o', 'on') %}
+            Override   
+          {% else %}
+            off
+          {% endif %}  
+  - platform: template
+    sensors:
+      pumpstatusnum:
+        friendly_name: "Pool Pump Staus numerical"
+        value_template: >-
+          {% if is_state('switch.p_h', 'on') %}
+            3
+          {% elif is_state('switch.p_m', 'on') %}
+            2
+          {% elif is_state('switch.p_l', 'on') %}
+            1
+          {% elif is_state('switch.p_o', 'on') %}
+            4   
+          {% else %}
+            0
+          {% endif %} 
+  - platform: template
+    sensors:
+      target_temp:
+        friendly_name: "Meat Target Temp"
+        value_template: >-
+          {% if is_state('input_select.meat_temp', 'Beef MdRare') %}
+            135
+          {% elif is_state('input_select.meat_temp', 'Beef Medium') %}
+            145
+          {% elif is_state('input_select.meat_temp', 'Chicken') %}
+            165
+          {% elif is_state('input_select.meat_temp', 'Pork') %}
+            160  
+          {% elif is_state('input_select.meat_temp', 'Long Smoke') %}
+            190  
+          {% else %}
+            0
+          {% endif %}            
+  - platform: template
+    sensors:
+      main_ac:
+        friendly_name: "Main A/C Status"
+        value_template: >-
+          {% if is_state_attr('climate.main_cooling','hvac_action', 'cooling') %}
+            A/C On
+          {% elif is_state_attr('climate.main_heating','hvac_action', 'heating') %}
+            Heat On
+          {%- else -%}
+            Idle
+          {% endif %}
+  - platform: template
+    sensors:
+      room_ac:
+        friendly_name: "Room A/C Status"
+        value_template: >-
+          {% if is_state_attr('climate.room_cooling','hvac_action', 'cooling') %}
+            A/C On
+          {% elif is_state_attr('climate.room_heating','hvac_action', 'heating') %}
+            Heat On
+          {%- else -%}
+            Idle
+          {% endif %}
+  - platform: template
+    sensors:
+      temp_dif:
+        friendly_name: 'Temperature Diference'
+        value_template: '{{(states.sensor.linear_wapirz_1_motion_sensor_temperature_2.state| float) - (states.sensor.linear_wapirz_1_motion_sensor_temperature.state| float)}}'
+        unit_of_measurement: "F"
+  - platform: ohmconnect
+    id: !secret oc_a
+  - platform: template
+    sensors:
+      n_sent:
+        friendly_name: 'GB Sent'
+        value_template: "{{ (states('sensor.m5_bytes_sent') | float / 1073741824) | round(2)  }}"
+        unit_of_measurement: "GB"
+      n_rec:
+        friendly_name: 'GB Recieved'
+        value_template: "{{ (states('sensor.m5_bytes_received') | float / 1073741824) | round(2)  }}"
+        unit_of_measurement: "GB"
+      n_total:
+        friendly_name: 'GB Total'
+        value_template: "{{ ((states('sensor.m5_bytes_sent') | float / 1073741824) + (states('sensor.m5_bytes_received') | float / 1073741824)) | round(2)  }}"
+        unit_of_measurement: "GB"

@@ -1,0 +1,473 @@
+homeassistant:
+
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  themes:
+    regular:
+      primary-color: "#4b93ad"
+      
+      # Cards
+      ha-card-border-radius: "10px"
+      ha-card-box-shadow: "0px 5px 5px rgba(0,0,0,0.3)"
+      
+    dark:
+      # Accent Colour (Edit this to change the accent) #
+      accent: "#40ccff"
+    
+    
+      # Background
+      primary-background-color: "#121212"
+    
+      # Text
+      primary-text-color: "#FFFFFFDE"
+      secondary-text-color: "#FFFFFF99"
+      disabled-text-color: "#FFFFFF61"
+      sidebar-selected-text-color: "var(--accent)"
+    
+      # Card
+      card-background-color: "#1D1D1D"
+      paper-card-background-color: "#1D1D1D"
+      
+      # Cards
+      ha-card-border-radius: "10px"
+      ha-card-box-shadow: "0px 5px 5px rgba(0,0,0,0.3)"
+    
+      # Colours
+      primary-color: "#1D1D1D"
+      secondary-background-color: "#1D1D1D"
+      accent-color: "var(--accent)"
+      dark-primary-color: "var(--accent)"
+      light-primary-color: "var(--accent)"
+    
+      # Controls
+      toggle-button-color: "var(--accent)"
+      paper-toggle-button-checked-button-color: "var(--accent)"
+      paper-toggle-button-checked-bar-color: "var(--accent)"
+      paper-toggle-button-checked-ink-color: "var(--accent)"
+      paper-toggle-button-unchecked-button-color: "#A5A5A5"
+      paper-toggle-button-unchecked-bar-color: "#787878"
+      paper-checkbox-checked-color: "var(--accent)"
+      paper-checkbox-checked-ink-color: "var(--accent)"
+      paper-radio-button-checked-color: "var(--accent)"
+      paper-input-container-focus-color: "var(--accent)"
+      paper-dropdown-menu-focus-color: "var(--accent)"
+      slider-color: "var(--accent)"
+      mdc-theme-primary: "var(--accent)"
+    
+      # Icons
+      state-icon-color: "#A0A0A0"
+      state-icon-active-color: "var(--accent)"
+      sidebar-selected-icon-color: "var(--accent)"
+      sidebar-icon-color: "#A0A0A0"
+    
+      # Badges
+      ha-label-badge-color: "var(--accent)"
+      label-badge-background-color: "#121212"
+      label-badge-text-color: "var(--secondary-text-color)"
+    
+      # Tabs
+      paper-tab-ink: "var(--accent)"
+    
+      # Divider
+      divider-color: "#2D2D2D"
+    
+      # Lumo
+      lumo-base-color: "#2D2D2D"
+      lumo-tint-5pct: "none"
+      lumo-shade-5pct: "#272727"
+      paper-grey-200: "#272727"
+      lumo-primary-color-10pct: "#2D2D2D"
+      lumo-primary-color-50pct: "none"
+      lumo-box-shadow-m: "none"
+      lumo-primary-color: "var(--accent)"
+      lumo-header-text-color: "var(--primary-text-color)"
+      lumo-body-text-color: "var(--primary-text-color)"
+      lumo-tertiary-text-color: "var(--secondary-text-color)"
+      lumo-primary-contrast-color: "var(--primary-text-color)"
+
+
+# Enables configuration UI
+config:
+
+
+browser_mod:
+
+# enable the recorder component (optional)
+recorder:
+  purge_keep_days: 7
+  purge_interval: 1
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+#device_tracker:
+device_tracker:
+  - platform: google_maps
+    username: !secret gm_u
+  - platform: bluetooth_tracker
+#  - platform: nmap_tracker
+ #   hosts: 192.168.0.1/24
+
+system_health:
+
+weather:
+  - platform: darksky
+    api_key: !secret ds_a
+    mode: daily
+    
+google:
+  client_id: !secret gc_i
+  client_secret: !secret gc_s
+    
+tuya:
+  username: !secret tu_u
+  password: !secret tu_p
+  country_code: 1
+    
+# Enables a map showing the location of tracked devices
+map:
+
+zone:
+  - name: Merced College
+    latitude: ***
+    longitude: ***
+    radius: 400
+    icon: mdi:school
+    
+  - name: ***
+    latitude: ***
+    longitude: ***
+    radius: 400
+    icon: mdi:store
+    
+  - name: VA
+    latitude: ***
+    longitude: ***  
+    radius: 400
+    icon: mdi:hospital-building
+
+# This will override the default home zone
+  - name: Home
+    latitude: ***
+    longitude: ***
+    radius: 150
+    icon: mdi:home
+      
+# Track the sun
+sun:
+
+hassio:
+
+#ecovacs:
+#  username: !secret ev_u
+#  password: !secret ev_p
+#  country: us
+#  continent: na
+
+
+shopping_list:
+
+tesla:
+  username: !secret te_u
+  password: !secret te_p
+
+
+switch:
+  - platform: switchmate
+    mac: '***'
+  - platform: switchmate
+    mac: '***'
+    name: kitchen lights
+    flip_on_off: true
+    
+light:
+  - platform: flux_led
+    devices:
+      192.168.0.130:
+        name: bar lights
+  - platform: switch
+    name: Ceiling Lights
+    entity_id: switch.switchmate
+  - platform: switch
+    name: String Lights
+    entity_id: switch.patio_string
+  - platform: switch
+    name: Kitchen Lights
+    entity_id: switch.kitchen_lights    
+     
+    
+#alexa_media:
+ # accounts:
+  #  - email:  !secret am_u
+   #   password: !secret am_p
+    #  url: "amazon.com"
+
+    
+ring:
+  username: !secret ri_u
+  password: !secret ri_p
+  
+binary_sensor:
+  - platform: ring
+  - platform: template
+    sensors:
+      kitchen_motion:
+        friendly_name: "Boys Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level')|float > 200 }}"
+  - platform: template
+    sensors:
+      patio_motion:
+        friendly_name: "Patio Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level_2')|float > 200 }}"
+  - platform: template
+    sensors:
+      lr_motion:
+        friendly_name: "Living Room Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.aeon_labs_zw100_multisensor_6_burglar')|float > 5 }}"
+  - platform: template
+    sensors:
+      people_home:
+        friendly_name: "House Occupied"
+        value_template: >-
+          {{ is_state('person.james_2', 'home')
+             or is_state('person.pingkham_2', 'home')
+             or is_state('person.xiphone', 'home')
+             or is_state('person.jacob', 'home')
+             or is_state('input_boolean.guests', 'on') }}
+  - platform: template
+    sensors:
+      nexus_10:
+        friendly_name: "Tablet Motion"
+        device_class: motion
+        value_template: "{{ is_state('switch.nexus_10_screen_sensor', 'on') }}"  
+        
+input_boolean:
+  guests:
+    name: House Guests
+    icon: mdi:account-multiple
+  alarm_triggered:
+    name: Alarm Triggered
+    icon: mdi:alarm-check
+  tts_nexus:
+    name: Nexus TTS
+    icon: mdi:voice
+  tts_blu:
+    name: blu TTS
+    icon: mdi:voice
+  robot:
+    name: Robot
+    icon: mdi:robot-vacuum-variant
+    initial: off
+  ac_mode:
+    name: AC Mode
+    initial: on
+  porch_auto:
+    name: Auto Porch Light
+    initial: on
+  patio_auto:
+    name: Auto Patio Lights 
+    initial: on
+  lr_auto:
+    name: Auto Living Room Lights
+    initial: on
+  hall_auto:
+    name: Auto Hall Light
+    initial: on
+  hm_on:
+    name: Heatermeter On
+    initial: on
+  m_tv_timer:
+    name: Master TV Timer
+    initial: off
+      
+input_select:
+  wall_lights:
+    name: Patio Wall Lights
+    options:
+      - Auto
+      - "On"
+      - "Off"
+    initial: Auto   
+  string_lights:
+    name: Patio String Lights
+    options:
+      - Auto
+      - "On"
+      - "Off"
+    initial: Auto  
+  pump_setting:
+    name: Pool Pump
+    options:
+      - Auto
+      - Override
+      - High
+      - Medium
+      - Low
+      - "Off"
+    initial: Auto  
+  meat_temp:
+    name: Meat Temp
+    options:
+      - "Beef MdRare" 
+      - "Beef Medium" 
+      - "Chicken" 
+      - "Pork" 
+      - "Long Smoke" 
+    initial: "Beef Medium"
+  vacume:
+    name: House Vac
+    options:
+      - "On"
+      - Auto
+      - "Off"
+    initial: Auto  
+
+    
+input_text:
+  tts_anouncement:
+    name: Anouncement
+    initial: Hello
+  pool_timer_manual:
+    name: Pump Time Remaining
+    initial: 0
+#  rest_cmd_url:
+#    name: URL for RESTful Command
+#    initial: http://192.168.0.119/luci/admin/lm/set?sp=240
+  elec_rate:
+    name: Electric Billing Use
+    initial: Off Peak
+  peaktoday:
+    name: 'Peak KWh Today'
+    initial: 0
+  speaktoday:
+    name: 'Peak KWh Start'
+    initial: 0 
+  epeaktoday:
+    name: 'Peak KWh End'
+    initial: 0
+  ch_start:
+    name: 'Charge Start'
+    initial: 0   
+  ch_end:
+    name: 'Charge end'
+    initial: 0 
+  ch_total:
+    name: 'Charge amount'
+    initial: 0 
+    
+#rest_command:
+#  rest_cmd:
+#    url: "{{ states('input_text.rest_cmd_url') }}"
+    
+
+input_number:
+  povertime:
+    name: Override Time
+    initial: 1
+    min: 1
+    max: 24
+    step: 1
+
+    
+proximity:
+  home_xiphone:
+    ignored_zones:
+      - work
+    devices:
+      - device_tracker.google_maps***
+    tolerance: 50
+    unit_of_measurement: ft
+  home_pingkham:
+    ignored_zones:
+      - work
+    devices:
+      - device_tracker.google_maps***
+    tolerance: 50
+    unit_of_measurement: ft    
+  home_james:
+    ignored_zones:
+      - work
+    devices:
+      - device_tracker.google_maps***
+    tolerance: 50
+    unit_of_measurement: ft          
+      
+notify:
+  - platform: pushbullet
+    name: pushbullet
+    api_key: !secret pb_a
+#  - platform: alexa_media
+#    name: alexa_media
+  - platform: lannouncer
+    name: nexus
+    host: 192.168.0.132
+  - platform: lannouncer
+    name: blu
+    host: 192.168.0.139
+    
+#android_ip_webcam:
+#  - host: 192.168.0.139
+    
+camera:
+  - platform: ring
+
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: *****
+    pending_time: 10
+    delay_time: 20
+    trigger_time: 1000
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
+
+#Text to speech
+tts:
+  - platform: google_translate
+
+person:
+
+# Cloud
+cloud:
+  google_actions:
+  alexa:
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml

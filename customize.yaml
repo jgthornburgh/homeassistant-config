@@ -1,0 +1,42 @@
+switch.p_h:
+  friendly_name: Pool Pump - High
+switch.p_m:
+  friendly_name: Pool Pump - Med
+switch.p_l:
+  friendly_name: Pool Pump - Low
+switch.p_o:
+  friendly_name: Pool Pump - Override
+binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_5:
+  device_class: door
+binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_4:
+  device_class: door
+binary_sensor.linear_wadwaz_1_door_window_sensor_sensor:
+  device_class: door
+binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_3:
+  device_class: door
+binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_2:
+  device_class: door
+binary_sensor.linear_wapirz_1_motion_sensor_sensor:
+  friendly_name: Boys Motion
+binary_sensor.linear_wapirz_1_motion_sensor_sensor_2:
+  friendly_name: Patio Motion1
+binary_sensor.master_motion:
+  device_class: motion
+binary_sensor.office_motion:
+  device_class: motion
+binary_sensor.people_home:
+  device_class: occupancy
+light.ge_appliances_zll_light_00015079_1:
+  friendly_name: Walkway
+sensor.pumpstatusnum:
+  unit_of_measurement: '%'
+input_text.ch_total:
+  unit_of_measurement: 'Wh'
+binary_sensor.ecolink_motion_detector_sensor:
+  device_class: motion
+binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor_2:
+  device_class: garage_door
+binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor:
+  device_class: garage_door
+switch.26115078500291543794:
+  icon: mdi:lightbulb
