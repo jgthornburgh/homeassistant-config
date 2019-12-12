@@ -1,0 +1,878 @@
+cch:
+  disable_sidebar: true
+  exceptions:
+    - conditions:
+        user: ***
+      config:
+        default_tab: []
+        disable_sidebar: false
+        hide_tabs: []
+        menu: show
+        notifications: show
+        options: show
+        show_tabs: []
+        voice: show
+  hide_tabs: '7,4,9,10'
+  swipe: true
+resources:
+  - type: module
+    url: /community_plugin/compact-custom-header/compact-custom-header.js
+  - type: module
+    url: /local/mini-graph-card-bundle.js?v=0.3.3
+  - type: js
+    url: /local/light-entity-card.js?track=true
+  - type: js
+    url: /local/dual-thermostat/dual-thermostat.js?v=1
+  - type: module
+    url: /community_plugin/text-divider-row/text-divider-row.js
+  - type: js
+    url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+  - type: module
+    url: /community_plugin/lovelace-card-tools/card-tools.js
+  - type: module
+    url: /community_plugin/lovelace-layout-card/layout-card.js
+  - type: module
+    url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
+  - type: js
+    url: /community_plugin/calendar-card/calendar-card.js
+title:  House
+views:
+  - badges: []
+    cards:
+      - cards:
+          - entity: weather.dark_sky
+            type: weather-forecast
+          - entity: sensor.dark_sky_hourly_summary
+            name: Today
+            type: sensor
+          - entity: sensor.dark_sky_daily_summary
+            name: This week
+            type: sensor
+        type: vertical-stack
+      - cards:
+          - align_state: right
+            animate: true
+            entities:
+              - color: blue
+                entity: sensor.dark_sky_temperature
+                name: Forecast
+              - color: green
+                entity: sensor.linear_wapirz_1_motion_sensor_temperature_2
+                name: Patio
+            height: 75
+            hours_to_show: 36
+            more_info: false
+            name: Outdoor Temps
+            points_per_hour: 1
+            show:
+              extrema: false
+              fill: false
+              labels: true
+              legend: true
+            type: 'custom:mini-graph-card'
+          - align_state: right
+            animate: true
+            card: null
+            color_thresholds:
+              - color: orange
+                value: 10
+              - color: green
+                value: 20
+              - color: blue
+                value: 60
+            entities:
+              - entity: sensor.dark_sky_nearest_storm_distance
+                state_adaptive_color: true
+            height: 250
+            hours_to_show: 36
+            icon: 'mdi:solar-power'
+            line_color: red
+            name: Nearest Storm
+            points_per_hour: 2
+            show:
+              extrema: false
+              fill: true
+              labels: true
+              legend: true
+              state: true
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+      - cards:
+          - entity: input_text.elec_rate
+            show_name: false
+            show_state: false
+            state_image:
+              Off Peak: /local/pictures/op.png
+              Partial Peak: /local/pictures/pp.png
+              Peak: /local/pictures/peak.png
+            type: picture-entity
+          - content: >
+              {{state_attr('calendar.holidays_in_united_states', 'message')}} -
+              {{as_timestamp(state_attr('calendar.holidays_in_united_states',
+              'start_time'))| timestamp_custom('%D')}}    
+            title: Next Holiday
+            type: markdown
+          - entities:
+              - calendar.school
+            numberOfDays: 10
+            progressBar: true
+            timeFormat: 'h:mm a'
+            title: School Calendar
+            type: 'custom:calendar-card'
+          - title: shopping list
+            type: shopping-list
+          - entities:
+              - entity: input_select.vacume
+            type: entities
+        type: vertical-stack
+    icon: 'mdi:cloud'
+    panel: false
+    path: ''
+    title: Home
+  - badges: []
+    cards:
+      - cards:
+          - align_state: right
+            animate: true
+            entities:
+              - color: blue
+                entity: sensor.office_temperature_new
+                name: Office
+              - color: green
+                entity: sensor.living_room_temperature
+                name: Bar
+              - color: red
+                entity: sensor.kitchen_temperature
+                name: Kitchen
+              - color: aqua
+                entity: sensor.main_thermostat
+                name: Hall
+              - color: magenta
+                entity: sensor.aeon_labs_zw100_multisensor_6_temperature
+                name: Living Room
+            height: 235
+            hours_to_show: 48
+            lower_bound: 50
+            more_info: false
+            name: Living Areas
+            points_per_hour: 0.5
+            show:
+              extrema: false
+              fill: false
+              labels: true
+              legend: true
+              state: true
+            type: 'custom:mini-graph-card'
+          - align_state: right
+            animate: true
+            entities:
+              - color: blue
+                entity: sensor.room_thermostat
+                name: Master Bedroom
+              - color: green
+                entity: sensor.master_bath_temperature
+                name: Master Bath
+              - color: red
+                entity: sensor.linear_wapirz_1_motion_sensor_temperature
+                name: Boys Room
+            height: 235
+            hours_to_show: 48
+            lower_bound: 50
+            more_info: false
+            name: Bedrooms
+            points_per_hour: 0.5
+            show:
+              extrema: false
+              fill: false
+              labels: true
+              legend: true
+              state: true
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+      - cards:
+          - card:
+              entity: climate.room_cooling
+              type: thermostat
+            conditions:
+              - entity: input_boolean.ac_mode
+                state: 'on'
+            type: conditional
+          - card:
+              entity: climate.room_heating
+              type: thermostat
+            conditions:
+              - entity: input_boolean.ac_mode
+                state: 'off'
+            type: conditional
+          - align_state: right
+            entities:
+              - entity: sensor.main_ac
+            hours_to_show: 72
+            more_info: true
+            type: history-graph
+          - card:
+              entity: climate.main_cooling
+              type: thermostat
+            conditions:
+              - entity: input_boolean.ac_mode
+                state: 'on'
+            type: conditional
+          - card:
+              entity: climate.main_heating
+              type: thermostat
+            conditions:
+              - entity: input_boolean.ac_mode
+                state: 'off'
+            type: conditional
+          - align_state: right
+            entities:
+              - entity: sensor.room_ac
+            hours_to_show: 72
+            more_info: true
+            type: history-graph
+        type: vertical-stack
+    icon: 'mdi:thermometer-lines'
+    panel: false
+    title: Indoor Temps
+  - badges: []
+    cards:
+      - cards:
+          - entity: alarm_control_panel.home_alarm
+            states:
+              - arm_away
+              - arm_home
+            type: alarm-panel
+          - entities:
+              - entity: switch.large_remote
+                icon: 'mdi:arrow-up-down-bold'
+              - entity: switch.small_remote
+                icon: 'mdi:arrow-up-down-bold'
+            type: entities
+        type: vertical-stack
+      - cards:
+          - entity: switch.linear_wa105dbz_1_main_operated_siren_switch
+            hold_action:
+              action: toggle
+            name: Siren
+            tap_action:
+              action: more-info
+            type: entity-button
+          - camera_image: camera.front_door
+            entities:
+              - binary_sensor.ring_front_door_motion
+              - binary_sensor.ring_front_door_ding
+            title: Front Door
+            type: picture-glance
+          - align_state: right
+            animate: true
+            card: null
+            color_thresholds:
+              - color: orange
+                value: 2
+              - color: green
+                value: 5
+              - color: blue
+                value: 8
+            entities:
+              - entity: sensor.aeon_labs_zw100_multisensor_6_luminance
+                state_adaptive_color: true
+            height: 100
+            hours_to_show: 48
+            icon: 'mdi:solar-power'
+            line_color: red
+            name: Light
+            points_per_hour: 2
+            show:
+              extrema: false
+              fill: true
+              labels: true
+              legend: true
+              state: true
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: input_text.tts_anouncement
+              - entity: input_boolean.tts_blu
+              - entity: input_boolean.tts_nexus
+            type: entities
+          - entities:
+              - entity: input_boolean.alarm_triggered
+            show_empty: false
+            state_filter:
+              - 'on'
+            type: entity-filter
+          - card:
+              title: People at home
+              type: glance
+            entities:
+              - person.james_2
+              - person.pingkham_2
+              - person.xiphone
+              - person.jacob
+            show_empty: false
+            state_filter:
+              - home
+            type: entity-filter
+          - entities:
+              - entity: binary_sensor.people_home
+            type: entities
+          - entities:
+              - entity: >-
+                  binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor
+              - entity: >-
+                  binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor_2
+              - entity: binary_sensor.patio_motion
+              - entity: binary_sensor.ring_front_door_motion
+              - entity: binary_sensor.master_bath_motion
+              - entity: binary_sensor.office_motion_new
+              - entity: binary_sensor.nexus_10
+              - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor
+              - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_2
+              - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_3
+              - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_4
+              - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_5
+              - entity: binary_sensor.large_garage_door_sensor
+              - entity: binary_sensor.small_garage_door_sensor
+              - entity: binary_sensor.lr_motion
+              - entity: binary_sensor.kitchen_motion_2
+            show_empty: false
+            state_filter:
+              - 'on'
+            type: entity-filter
+        type: vertical-stack
+    icon: 'mdi:security'
+    panel: false
+    title: Alarm
+  - badges: []
+    cards:
+      - entities:
+          - entity: input_boolean.patio_auto
+            icon: 'mdi:brightness-auto'
+            name: Patio
+            tap_action:
+              action: toggle
+          - entity: input_boolean.porch_auto
+            icon: 'mdi:brightness-auto'
+            name: Porch
+            tap_action:
+              action: toggle
+          - entity: input_boolean.lr_auto
+            icon: 'mdi:brightness-auto'
+            name: Living Room
+            tap_action:
+              action: toggle
+          - entity: input_boolean.hall_auto
+            icon: 'mdi:brightness-auto'
+            name: Hall
+            tap_action:
+              action: toggle
+        title: Auto Lights
+        type: glance
+      - columns: 3
+        entities:
+          - entity: group.patio_lights
+            name: All
+            tap_action:
+              action: toggle
+          - entity: light.ge_appliances_zll_light_***
+            name: West
+            tap_action:
+              action: toggle
+          - entity: light.ge_appliances_zll_light_***
+            name: Middle
+            tap_action:
+              action: toggle
+          - entity: light.ge_softwhite_0003fafb_1
+            name: East
+            tap_action:
+              action: toggle
+          - entity: light.ge_appliances_zll_light_***
+            tap_action:
+              action: toggle
+          - entity: light.string_lights
+            name: String
+            tap_action:
+              action: toggle
+        title: Patio
+        type: glance
+      - columns: 3
+        entities:
+          - entity: group.lv_rm_lights
+            name: All
+            tap_action:
+              action: toggle
+          - entity: light.ceiling_lights
+            name: Ceiling
+            tap_action:
+              action: toggle
+          - entity: light.bar_lights
+            name: Bar
+            tap_action:
+              action: toggle
+          - entity: light.***
+            tap_action:
+              action: toggle
+          - entity: light.kitchen_lights
+            name: Kitchen
+            tap_action:
+              action: toggle
+          - entity: light.***
+            tap_action:
+              action: toggle
+        title: Living Room
+        type: glance
+      - entities:
+          - entity: light.***
+            name: Color
+            tap_action:
+              action: toggle
+          - entity: light.master_bath_white
+            name: White
+            tap_action:
+              action: toggle
+        title: Master Bath
+        type: glance
+      - entities:
+          - entity: light.ge_softwhite_***
+            name: Tesla
+            tap_action:
+              action: toggle
+          - entity: light.cree_connected_a_19_60w_equivalent_***
+            name: Loft
+            tap_action:
+              action: toggle
+        title: Garage
+        type: glance
+      - entities:
+          - entity: light.ge_appliances_zll_light_***
+            tap_action:
+              action: toggle
+          - entity: light.leviton_dzpd3_1lw_plug_in_dimming_lamp_module_level
+            name: Christmas Tree
+            tap_action:
+              action: toggle
+          - entity: switch.***
+            name: Office
+            tap_action:
+              action: toggle
+        title: Other
+        type: glance
+    icon: 'mdi:lightbulb-on-outline'
+    panel: false
+    title: Lights
+  - badges: []
+    cards:
+      - align_state: right
+        animate: true
+        color_thresholds:
+          - color: orange
+            value: 30
+          - color: green
+            value: 55
+        entities:
+          - entity: sensor.temperance_battery_sensor
+            state_adaptive_color: true
+        height: 125
+        hours_to_show: 48
+        icon: 'mdi:flash'
+        line_color: red
+        lower_bound: 15
+        more_info: true
+        name: Charge Level
+        points_per_hour: 3
+        show:
+          graph: line
+          labels: false
+          state: true
+        type: 'custom:mini-graph-card'
+      - entities:
+          - entity: binary_sensor.temperance_charger_sensor
+          - entity: sensor.temperance_range_sensor
+          - entity: switch.temperance_charger_switch
+          - entity: switch.temperance_maxrange_switch
+          - entity: lock.temperance_door_lock
+          - entity: sensor.temperance_temperature_sensor_outside
+          - entity: device_tracker.tesla_model_***
+        type: entities
+      - entity: climate.temperance_hvac_climate_system
+        name: Temperance
+        theme: default
+        type: thermostat
+      - entity: input_text.ch_total
+        max: 75000
+        min: 0
+        name: Last Charge
+        severity:
+          green: 0
+          red: 50000
+          yellow: 25000
+        theme: default
+        type: gauge
+        unit: Wh
+    icon: 'mdi:car-sports'
+    title: Tesla
+  - badges: []
+    cards:
+      - cards:
+          - color_thresholds:
+              - color: red
+                value: 0.1
+              - color: orange
+                value: 3
+              - color: green
+                value: 5
+            entities:
+              - entity: sensor.wnow
+                name: Instant
+            hours_to_show: 50
+            icon: 'mdi:solar-power'
+            line_color: grey
+            line_width: 2
+            lower_bound: 0
+            points_per_hour: 4
+            show:
+              extrema: true
+              legend: true
+              state: true
+            type: 'custom:mini-graph-card'
+          - color_thresholds:
+              - color: red
+                value: 0.5
+              - color: orange
+                value: 15
+              - color: green
+                value: 30
+            entities:
+              - entity: sensor.wtoday
+                name: Cumulative
+            hours_to_show: 50
+            icon: 'mdi:solar-power'
+            labels: true
+            line_color: grey
+            line_width: 2
+            points_per_hour: 4
+            show:
+              extrema: true
+              legend: false
+              state: true
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+      - cards:
+          - entity: input_text.peaktoday
+            max: 20
+            min: 0
+            name: Peak Today
+            severity:
+              green: 15
+              red: 0
+              yellow: 7
+            theme: default
+            type: gauge
+          - entity: sensor.wsdays
+            max: 300
+            min: 0
+            name: 7 Days
+            severity:
+              green: 200
+              red: 0
+              yellow: 150
+            theme: default
+            type: gauge
+          - color_thresholds:
+              - color: red
+                value: 0.5
+              - color: orange
+                value: 15
+              - color: green
+                value: 30
+            entities:
+              - entity: sensor.wsdays
+                name: Last 7 days
+            hours_to_show: 100
+            icon: 'mdi:solar-power'
+            labels: true
+            line_color: grey
+            line_width: 2
+            points_per_hour: 0.25
+            show:
+              extrema: true
+              legend: false
+              state: true
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+    icon: 'mdi:solar-power'
+    panel: false
+    title: solar
+  - badges: []
+    cards:
+      - cards:
+          - entities:
+              - entity: input_select.pump_setting
+              - style:
+                  background-color: grey
+                  height: 3px
+                type: divider
+              - entity: sensor.pumpstatus
+            show_header_toggle: false
+            title: Pool Status
+            type: entities
+          - card:
+              entities:
+                - entity: input_number.povertime
+                  name: Hours to run
+              type: entities
+            conditions:
+              - entity: input_text.pool_timer_manual
+                state_not: 0 minutes
+            type: conditional
+          - card:
+              entities:
+                - entity: input_text.pool_timer_manual
+              show_icon: false
+              show_name: true
+              show_state: true
+              type: glance
+            conditions:
+              - entity: input_text.pool_timer_manual
+                state_not: 0 minutes
+            type: conditional
+          - align_state: right
+            animate: true
+            entities:
+              - entity: sensor.pumpstatusnum
+                name: Level
+            height: 75
+            hours_to_show: 48
+            icon: 'mdi:water-pump'
+            more_info: true
+            name: Pump Status
+            points_per_hour: 3
+            show:
+              extrema: false
+              fill: false
+              graph: line
+              labels: false
+              legend: true
+              points: false
+              state: false
+            smoothing: false
+            type: 'custom:mini-graph-card'
+            update_interval: 500
+        type: 'custom:vertical-stack-in-card'
+      - card:
+          entities:
+            - switch.p_h
+            - switch.p_m
+            - switch.p_l
+          type: entities
+        conditions:
+          - entity: input_select.pump_setting
+            state: 'Off'
+        type: conditional
+      - cards:
+          - entity: switch.***
+            hold_action:
+              action: more-info
+            name: Robot
+            show_icon: true
+            show_name: true
+            tap_action:
+              action: toggle
+            type: entity-button
+          - entities:
+              - entity: input_boolean.robot
+                name: Continuous
+            show_header_toggle: false
+            type: entities
+        type: 'custom:vertical-stack-in-card'
+    icon: 'mdi:pool'
+    panel: false
+    title: Pool
+  - badges: []
+    cards:
+      - cards:
+          - align_state: right
+            animate: true
+            entities:
+              - entity: sensor.hm_pit
+                name: Pit temp
+              - entity: sensor.hm_set
+                name: Set Point
+            hours_to_show: 1
+            more_info: false
+            name: Smoker
+            points_per_hour: 30
+            show:
+              fill: false
+            type: 'custom:mini-graph-card'
+          - align_state: right
+            animate: true
+            entities:
+              - entity: sensor.hm_probe1
+                name: Probe 1
+              - entity: sensor.hm_probe2
+                name: Probe 2
+              - entity: sensor.hm_probe3
+                name: Probe 3
+              - entity: sensor.target_temp
+                name: Target
+            hours_to_show: 1
+            more_info: false
+            name: Meat
+            points_per_hour: 30
+            show:
+              fill: false
+            type: 'custom:mini-graph-card'
+        type: vertical-stack
+      - entities:
+          - entity: sensor.hm_set
+            name: Set Point
+          - entity: sensor.hm_pit
+            name: Pit Temp
+          - entity: input_select.meat_temp
+          - entity: sensor.target_temp
+          - entity: sensor.hm_probe1
+            name: Probe 1
+          - entity: sensor.hm_probe2
+            name: Probe 2
+          - entity: sensor.hm_probe3
+            name: Probe 3
+          - icon: 'mdi:nuke'
+            name: Heatermeter
+            type: weblink
+            url: '***'
+          - entity: input_boolean.hm_on
+            icon: 'mdi:wall-sconce-variant'
+            name: Cooking
+        type: entities
+    icon: 'mdi:wall-sconce-variant'
+    title: BBQ
+  - badges: []
+    cards:
+      - cards:
+          - entities:
+              - icon: 'mdi:beer'
+                name: Tap List
+                type: weblink
+                url: '***'
+            type: entities
+          - aspect_ratio: 100%
+            type: iframe
+            url: '***'
+        type: 'custom:vertical-stack-in-card'
+    icon: 'mdi:beer'
+    panel: true
+    title: Tap
+  - badges: []
+    cards:
+      - image: /local/map.svg
+        type: picture
+      - entities:
+          - entity: input_boolean.guests
+          - entity: switch.leviton_dzpa1_1lw_plug_in_appliance_module_switch
+          - entity: input_boolean.ac_mode
+        type: entities
+      - entities:
+          - entity: calendar.pool_high
+          - entity: calendar.pool_medium
+          - entity: calendar.pool_low
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.m5_bytes_sent
+            name: Sent
+          - entity: sensor.m5_bytes_received
+            name: Received
+        hours_to_show: 24
+        points_per_hour: 10
+        show:
+          labels: true
+        type: 'custom:mini-graph-card'
+      - entities:
+          - entity: sensor.m5_packets_received
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.m5_packets_sec_received
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: media_player.***
+          - entity: media_player.***
+        type: entities
+      - entities:
+          - entity: binary_sensor.kitchen_motion_2
+          - entity: light.kitchen_lights
+        hours_to_show: 1
+        refresh_interval: 0
+        type: history-graph
+    icon: 'mdi: '
+    panel: false
+    theme: default
+    title: Floor Plan
+  - badges: []
+    cards:
+      - entities:
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.***
+          - entity: device_tracker.asus_z01kd
+          - entity: device_tracker.***
+          - entity: device_tracker.google_maps_***
+          - entity: device_tracker.google_maps_***
+          - entity: device_tracker.google_maps_***
+          - entity: device_tracker.oneplus2
+          - entity: device_tracker.tesla_model_3
+        hours_to_show: 12
+        title: States
+        type: history-graph
+      - entities:
+          - entity: light.ge_appliances_zll_light_***
+          - entity: light.ge_softwhite_0003fafb_1
+          - entity: light.ge_appliances_zll_light_***
+          - entity: light.ge_appliances_zll_light_***
+          - entity: light.ge_appliances_zll_light_***
+          - entity: light.cree_connected_a_19_60w_equivalent_***
+          - entity: light.ge_softwhite_***
+          - type: divider
+          - entity: binary_sensor.kitchen_motion
+          - entity: binary_sensor.patio_motion
+          - entity: binary_sensor.ring_front_door_motion
+          - entity: binary_sensor.master_bath_motion
+          - entity: binary_sensor.office_motion_new
+          - entity: binary_sensor.nexus_10
+          - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor
+          - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_2
+          - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_3
+          - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_4
+          - entity: binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_5
+          - entity: binary_sensor.ecolink_motion_detector_sensor
+          - entity: binary_sensor.lr_motion
+            name: Living Room Motion
+          - entity: >-
+              binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor_2
+          - entity: >-
+              binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor
+        hours_to_show: 12
+        title: States
+        type: history-graph
+      - entities:
+          - entity: alarm_control_panel.home_alarm
+          - entity: person.james_2
+          - entity: person.pingkham_2
+          - entity: person.xiphone
+          - entity: person.jacob
+        hours_to_show: 24
+        refresh_interval: 0
+        title: States
+        type: history-graph
+    icon: 'mdi: '
+    title: History
