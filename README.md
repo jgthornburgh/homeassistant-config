@@ -13,11 +13,15 @@
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer.PNG)
 
 ## Custom Components
+* [HOME ASSISTANT COMMUNITY STORE](https://github.com/hacs/integration)
 * [Custom Compact Header](https://github.com/maykar/compact-custom-header)
   * Cards shown based on User Account
   * Swipe Enabeled
 * [Mini-Graph-Card](https://github.com/kalkih/mini-graph-card)
 * [vertical-stack-in-card](https://github.com/custom-cards/vertical-stack-in-card)
+* [Calendar Card](https://github.com/ljmerza/calendar-card)
+  * Show events from Google Calendar
+
 ***
 # Devices
 ## Hardware
