@@ -116,7 +116,48 @@
   * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
   * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
   * ESPHome
-  * `code`
+  * `esphome:
+  name: office
+  platform: ESP8266
+  board: d1_mini_lite
+
+wifi:
+  ssid: '111'
+  password: '111'
+  manual_ip:
+    static_ip: 192.168.0.52
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    pin: D2
+    name: "Office Motion new"
+    device_class: motion
+    
+sensor:
+  - platform: wifi_signal
+    name: "Office WiFi Signal Sensor"
+    update_interval: 60s
+  - platform: dht
+    pin: D1
+    model: AM2302
+    temperature:
+      name: "Office Temperature new"
+      filters:
+        - lambda: return x * (9.0/5.0) + 32.0;
+      unit_of_measurement: "°F"
+    humidity:
+      name: "Office Humidity new"
+    update_interval: 60s`
  
 ### Multisensor
 * [Aeotec ZW100 Multisensor 6](https://amzn.to/2qMCRso)
@@ -131,7 +172,59 @@
   * WiFi
   * [Dual Relay Shield](https://amzn.to/2NqGlcB)
   * ESPHome
-  * `code`
+  * `esphome:
+  name: garage
+  platform: ESP8266
+  board: d1_mini_lite
+
+wifi:
+  ssid: '111'
+  password: '111'
+  manual_ip:
+    static_ip: 192.168.0.50
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+    
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal Sensor"
+    update_interval: 60s
+    
+    
+switch:
+  - platform: gpio
+    name: "lg_garage_switch"
+    pin: D1
+    inverted: no
+    id: large_gr_switch
+  - platform: template
+    name: "Large Remote"
+    turn_on_action:
+    - switch.turn_on: large_gr_switch
+    - delay: 500ms
+    - switch.turn_off: large_gr_switch
+  - platform: gpio
+    name: "sm_garage_switch"
+    pin: D2
+    id: small_gr_switch
+    inverted: no
+  - platform: template
+    name: "Small Remote"
+    turn_on_action:
+    - switch.turn_on: small_gr_switch
+    - delay: 500ms
+    - switch.turn_off: small_gr_switch
+
+    `
 * [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
   * WiFi
   * Tasmota
