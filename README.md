@@ -1,3 +1,17 @@
+# Contents
+* https://github.com/jgthornburgh/homeassistant-config#lovelace-ui
+https://github.com/jgthornburgh/homeassistant-config#custom-components
+https://github.com/jgthornburgh/homeassistant-config#devices
+https://github.com/jgthornburgh/homeassistant-config#hardware
+https://github.com/jgthornburgh/homeassistant-config#lights
+https://github.com/jgthornburgh/homeassistant-config#sensors
+https://github.com/jgthornburgh/homeassistant-config#thermostats
+https://github.com/jgthornburgh/homeassistant-config#switches
+https://github.com/jgthornburgh/homeassistant-config#plugs
+https://github.com/jgthornburgh/homeassistant-config#siren
+https://github.com/jgthornburgh/homeassistant-config#integrations
+https://github.com/jgthornburgh/homeassistant-config#node-red-flows
+
 # Lovelace UI
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main.PNG)
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo.PNG)
@@ -87,17 +101,13 @@
   * Z-Wave
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/door.jpg)
-## Thermostats
-* [Linear GC-TBZ48](https://amzn.to/2JWrVhZ) (2x)
-  * Z-Wave
- 
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/hvac.jpg)
-## Motion
+
+### Motion
 * [Ecolink Motion Detector](https://amzn.to/2Nqtsiu)
   * Z-Wave
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/eco%20motion.jpg)
-## Motion/Temp
+### Motion/Temp
 * [Linear WAPIRZ-1](https://amzn.to/2WRkpul) (2x)
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/motion%20temp.jpg)
@@ -108,7 +118,7 @@
   * ESPHome
   * `code`
  
-## Multisensor
+### Multisensor
 * [Aeotec ZW100 Multisensor 6](https://amzn.to/2qMCRso)
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ms6.jpg)
@@ -164,6 +174,11 @@
 ### Google Home Mini
   * WiFi
   
+## Thermostats
+* [Linear GC-TBZ48](https://amzn.to/2JWrVhZ) (2x)
+  * Z-Wave
+ 
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/hvac.jpg)  
 ## Vacuume
 * [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
 
