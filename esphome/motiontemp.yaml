@@ -1,0 +1,42 @@
+esphome:
+  name: office
+  platform: ESP8266
+  board: d1_mini_lite
+
+wifi:
+  ssid: '111'
+  password: '111'
+  manual_ip:
+    static_ip: 192.168.0.52
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    pin: D2
+    name: "Office Motion"
+    device_class: motion
+    
+sensor:
+  - platform: wifi_signal
+    name: "Office WiFi Signal Sensor"
+    update_interval: 60s
+  - platform: dht
+    pin: D1
+    model: AM2302
+    temperature:
+      name: "Office Temperature"
+      filters:
+        - lambda: return x * (9.0/5.0) + 32.0;
+      unit_of_measurement: "°F"
+    humidity:
+      name: "Office Humidity"
+    update_interval: 60s`
