@@ -130,11 +130,12 @@
 
 ## Switches
 * D1 Mini
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
   * WiFi
   * [Dual Relay Shield](https://amzn.to/2NqGlcB)
   * ESPHome
-  
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.PNG?)
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.PNG)
 * [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
   * WiFi
   * Tasmota
