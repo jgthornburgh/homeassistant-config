@@ -1,16 +1,16 @@
 # Contents
-* https://github.com/jgthornburgh/homeassistant-config#lovelace-ui
-https://github.com/jgthornburgh/homeassistant-config#custom-components
-https://github.com/jgthornburgh/homeassistant-config#devices
-https://github.com/jgthornburgh/homeassistant-config#hardware
-https://github.com/jgthornburgh/homeassistant-config#lights
-https://github.com/jgthornburgh/homeassistant-config#sensors
-https://github.com/jgthornburgh/homeassistant-config#thermostats
-https://github.com/jgthornburgh/homeassistant-config#switches
-https://github.com/jgthornburgh/homeassistant-config#plugs
-https://github.com/jgthornburgh/homeassistant-config#siren
-https://github.com/jgthornburgh/homeassistant-config#integrations
-https://github.com/jgthornburgh/homeassistant-config#node-red-flows
+* [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config#lovelace-ui)
+* [HACS](https://github.com/jgthornburgh/homeassistant-config#custom-components)
+* [Devices](https://github.com/jgthornburgh/homeassistant-config#devices)
+  * [Hardware](https://github.com/jgthornburgh/homeassistant-config#hardware)
+  * [Lights](https://github.com/jgthornburgh/homeassistant-config#lights)  
+  * [Sensors](https://github.com/jgthornburgh/homeassistant-config#sensors)
+  * [Switches](https://github.com/jgthornburgh/homeassistant-config#switches)
+  * [Plugs](https://github.com/jgthornburgh/homeassistant-config#plugs)
+  * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
+  * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
+* [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
+* [Node-Red](https://github.com/jgthornburgh/homeassistant-config#node-red-flows)
 
 # Lovelace UI
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main.PNG)
@@ -26,7 +26,7 @@ https://github.com/jgthornburgh/homeassistant-config#node-red-flows
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq.PNG)
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer.PNG)
 
-## Custom Components
+## HACS
 * [HOME ASSISTANT COMMUNITY STORE](https://github.com/hacs/integration)
 * [Custom Compact Header](https://github.com/maykar/compact-custom-header)
   * Cards shown based on User Account
