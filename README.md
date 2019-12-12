@@ -1,5 +1,16 @@
 # Lovelace UI
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/main.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/thermo.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/alarm.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/lights.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/tesla.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/solar.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool1.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool2.PNG) 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool3.PNG) 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/pool4.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/bbq.PNG)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/beer.PNG)
 
 ## Custom Components
 * [Custom Compact Header](https://github.com/maykar/compact-custom-header)
