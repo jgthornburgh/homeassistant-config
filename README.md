@@ -112,6 +112,10 @@
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/motion%20temp.jpg)
 * [D1 Mini](https://amzn.to/2WU9QXt) (4x)
+
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
+
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
   * WiFi
   * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
   * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
@@ -130,8 +134,6 @@
 
 ## Switches
 * D1 Mini
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
   * WiFi
   * [Dual Relay Shield](https://amzn.to/2NqGlcB)
   * ESPHome
