@@ -117,6 +117,7 @@
   * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
   * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
   * ESPHome
+  
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
 
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
