@@ -154,6 +154,8 @@
 ## Plugs
 * [TP-Link](https://amzn.to/2Pd0aVC)
   * WiFi
+   
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tplink.jpg)
 * [Amzdest Outdoor Smart Outlet](https://amzn.to/2K0sffR)
   * Z-Wave
    
@@ -178,10 +180,16 @@
 ## Voice Control/Media
 ### [Amazon Echo](https://amzn.to/34Ds3Lj)
   * WiFi
+    
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/echo.jpg)
 ### [Amazon Fire Stick](https://amzn.to/2p2bR7q) (3x)
   * WiFi
+    
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/firestick.jpg)
 ### Google Home Mini
   * WiFi
+    
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ghome.jpg)
   
 ## Thermostats
 * [Linear GC-TBZ48](https://amzn.to/2JWrVhZ) (2x)
