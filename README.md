@@ -62,6 +62,7 @@
   * [Low Profile Charger](https://amzn.to/2oWbtXU)
   * [Mount](https://amzn.to/2NTvd7b)
   * [Magnetic Cable](https://amzn.to/2NQUyON)
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tablet.jpg)
 ## Lights
 ### White
 * [GE Link](https://amzn.to/2qth5cK) (5x)
@@ -112,14 +113,13 @@
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/motion%20temp.jpg)
 * [D1 Mini](https://amzn.to/2WU9QXt) (4x)
-
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
-
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
   * WiFi
   * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
   * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
   * ESPHome
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
+
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
   
  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/kitchen.PNG?)
 
@@ -134,11 +134,11 @@
 
 ## Switches
 * D1 Mini
-
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage1.PNG)
   * WiFi
   * [Relay Shield](https://amzn.to/2NqGlcB)
   * ESPHome
+  
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage1.PNG)
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.PNG)
 * [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
