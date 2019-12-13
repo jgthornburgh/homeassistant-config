@@ -189,7 +189,7 @@
 ### Google Home Mini
   * WiFi
     
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ghome.jpg)
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ghome.JPG)
   
 ## Thermostats
 * [Linear GC-TBZ48](https://amzn.to/2JWrVhZ) (2x)
