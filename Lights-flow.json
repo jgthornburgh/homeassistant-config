@@ -1,0 +1,5729 @@
+[
+    {
+        "id": "832b5e75.3480d",
+        "type": "tab",
+        "label": "Lights",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e3f8aa7f.903c98",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "PM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "5004",
+        "endtime": "1380",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "-60",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "223a641c.e87e0c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "834e2a94.255cd8",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "e3f8aa7f.903c98"
+            ]
+        ]
+    },
+    {
+        "id": "1188e43c.87b35c",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "e3f8aa7f.903c98"
+            ]
+        ]
+    },
+    {
+        "id": "6a7f1de4.62efd4",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "bar light",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_on",
+        "data": "{\"entity_id\":\"light.bar_lights\",\"effect\":\"colorloop\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 820,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51896cb1.84cd94",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 100,
+        "wires": [
+            [
+                "9fdb202f.41849"
+            ],
+            [
+                "34b44814.29a218"
+            ]
+        ]
+    },
+    {
+        "id": "34b44814.29a218",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "bar light",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.bar_lights\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 800,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea6fccb6.5ff8e",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "living room off",
+        "server": "f84750e2.8059a",
+        "service_domain": "switch",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"switch.switchmate\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 720,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8465d545.239e68",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "living room on",
+        "server": "f84750e2.8059a",
+        "service_domain": "switch",
+        "service": "turn_on",
+        "data": "{\"entity_id\":\"switch.switchmate\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 900,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8857d3b7.8d3cc",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "5004",
+        "endtime": "1380",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "-90",
+        "endoff": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "f8816153.1165f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "96850dcc.ddb24",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "8857d3b7.8d3cc"
+            ]
+        ]
+    },
+    {
+        "id": "5d666c88.0c14f4",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "8857d3b7.8d3cc"
+            ]
+        ]
+    },
+    {
+        "id": "e1010455.e300e8",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "d26f4afe.2bd7a8"
+            ],
+            [
+                "ea6fccb6.5ff8e"
+            ]
+        ]
+    },
+    {
+        "id": "19ca57d3.485128",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "AM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "150",
+        "endtime": "240",
+        "starttime2": "300",
+        "endtime2": "420",
+        "startoff": "0",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "223a641c.e87e0c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d0049e8d.f417d",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "master bath motion",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "entityidfilter": "binary_sensor.master_bath_motion",
+        "entityidfiltertype": "substring",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "1a4c118a.349e5e",
+                "da7055b4.519ca8"
+            ],
+            [
+                "1a4c118a.349e5e"
+            ]
+        ]
+    },
+    {
+        "id": "1a4c118a.349e5e",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 620,
+        "y": 640,
+        "wires": [
+            [
+                "20d6e1ab.42da1e",
+                "bc78ee51.c6578"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e03a6bf5.4868e8",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 750,
+        "y": 1120,
+        "wires": [
+            [
+                "a6408392.d4ac7",
+                "c0240469.4b52f8",
+                "5c1072b8.8bd32c"
+            ],
+            [
+                "4bc0a867.17cac8"
+            ]
+        ]
+    },
+    {
+        "id": "4bc0a867.17cac8",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "5",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 1000,
+        "y": 1220,
+        "wires": [
+            [
+                "bd35eff.8bdd51"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2ba77dcf.f9d012",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "w patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_appliances_zll_light_000526db_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b3f92e7.c42dcc",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "m patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_appliances_zll_light_0006d896_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fdef9da.aec218",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "e patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_softwhite_0003fafb_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f70cb93.121404",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "w patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_appliances_zll_light_000526db_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69f90008.a77d3",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "m patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_appliances_zll_light_0006d896_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1320,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7303b88b.a1ccd8",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "e patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_softwhite_0003fafb_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "761ac7eb.623e48",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 1040,
+        "wires": [
+            [
+                "4f88b64f.477d98"
+            ]
+        ]
+    },
+    {
+        "id": "9341d05a.b7ba4",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.36613050840d8e82dfd3",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 830,
+        "y": 560,
+        "wires": [
+            [],
+            [
+                "10a904ef.6aa5db",
+                "54c96d23.b8c304"
+            ]
+        ]
+    },
+    {
+        "id": "93939005.1d0e6",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Living Room",
+        "info": "",
+        "x": 90,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "c3f437f8.eba2a8",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Master Bath",
+        "info": "",
+        "x": 110,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6a4fbf8c.80a8",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "dawn",
+        "endTime": "dusk",
+        "startOffset": "60",
+        "endOffset": "-60",
+        "x": 610,
+        "y": 1720,
+        "wires": [
+            [],
+            [
+                "fbb9bc41.b9c36"
+            ]
+        ]
+    },
+    {
+        "id": "fbb9bc41.b9c36",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_appliances_zll_light_0006d896_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 830,
+        "y": 1720,
+        "wires": [
+            [],
+            [
+                "eb6a4df.76edfb"
+            ]
+        ]
+    },
+    {
+        "id": "eb6a4df.76edfb",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "m patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_appliances_zll_light_0006d896_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1000,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71856943.63d128",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "m patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_appliances_zll_light_0006d896_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1000,
+        "y": 1780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4a0e60.835dc18",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "dawn",
+        "endTime": "dusk",
+        "startOffset": "60",
+        "endOffset": "-60",
+        "x": 610,
+        "y": 1580,
+        "wires": [
+            [],
+            [
+                "929825ea.56b378"
+            ]
+        ]
+    },
+    {
+        "id": "929825ea.56b378",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_softwhite_0003fafb_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 830,
+        "y": 1580,
+        "wires": [
+            [],
+            [
+                "cbeeca27.121e78"
+            ]
+        ]
+    },
+    {
+        "id": "34ddb374.1bfe1c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "e patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_softwhite_0003fafb_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 990,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbeeca27.121e78",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "e patio",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_softwhite_0003fafb_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 990,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e8ac169.84566",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Patio Lights",
+        "info": "",
+        "x": 90,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e4467fab.a5b23",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "wall lights auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": " input_boolean.patio_auto",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 100,
+        "y": 1480,
+        "wires": [
+            [
+                "646866b.a0b1b18"
+            ]
+        ]
+    },
+    {
+        "id": "3bd5f54c.17d6fa",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "e patio",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.ge_softwhite_0003fafb_1\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 750,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "628b1f44.c4138",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "m patio",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.ge_appliances_zll_light_0006d896_1\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 760,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "704c1252.b55dbc",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "w patio",
+        "server": "f84750e2.8059a",
+        "version": 0,
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.ge_appliances_zll_light_000526db_1\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 760,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dcf1ab9d.cbc358",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 1380,
+        "wires": [
+            [
+                "7a8a24b7.af4e1c",
+                "4e3a02cb.55431c",
+                "ac385ca8.11084"
+            ],
+            [
+                "704c1252.b55dbc",
+                "628b1f44.c4138",
+                "3bd5f54c.17d6fa",
+                "45090a21.84a314"
+            ]
+        ]
+    },
+    {
+        "id": "bd35eff.8bdd51",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.patio_auto",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1100,
+        "y": 1280,
+        "wires": [
+            [],
+            [
+                "5f70cb93.121404",
+                "69f90008.a77d3",
+                "7303b88b.a1ccd8",
+                "6a57e5c.39a741c"
+            ]
+        ]
+    },
+    {
+        "id": "20d6e1ab.42da1e",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 810,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc78ee51.c6578",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "white",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.master_bath_white",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 810,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "10a904ef.6aa5db",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "{\"brightness\":\"50\",\"rgb_color\":[255,0,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1010,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54c96d23.b8c304",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "white",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.master_bath_white",
+        "data": "{\"brightness_pct\":\"5\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1010,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbb57d1f.deb86",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.master_bath_white",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 830,
+        "y": 480,
+        "wires": [
+            [],
+            [
+                "54c96d23.b8c304",
+                "e2ea9e8c.5b62a"
+            ]
+        ]
+    },
+    {
+        "id": "6926bd49.61b7c4",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "override_topic": true,
+        "entity_id": "input_select.wall_lights",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 840,
+        "y": 1640,
+        "wires": [
+            [],
+            [
+                "34ddb374.1bfe1c"
+            ]
+        ]
+    },
+    {
+        "id": "9470303d.ff349",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.patio_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 240,
+        "y": 1600,
+        "wires": [
+            [],
+            [
+                "d7d33033.d4699",
+                "e28af734.2c64e8"
+            ]
+        ]
+    },
+    {
+        "id": "2219a671.00f89a",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "override_topic": true,
+        "entity_id": "input_select.wall_lights",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 840,
+        "y": 1780,
+        "wires": [
+            [],
+            [
+                "71856943.63d128"
+            ]
+        ]
+    },
+    {
+        "id": "4850b2fc.bcca9c",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 680,
+        "wires": [
+            [
+                "904d5b8d.fe5b88"
+            ]
+        ]
+    },
+    {
+        "id": "6a709946.ec7f78",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 720,
+        "wires": [
+            [
+                "904d5b8d.fe5b88"
+            ]
+        ]
+    },
+    {
+        "id": "67133254.3c65ac",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 270,
+        "y": 800,
+        "wires": [
+            [
+                "7b6ad593.07361c",
+                "2156ec1.96a5814"
+            ],
+            [
+                "8068c7a6.f92848",
+                "5cca5a9d.dcf3b4"
+            ]
+        ]
+    },
+    {
+        "id": "904d5b8d.fe5b88",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "AM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "300",
+        "endtime": "360",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "0",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 100,
+        "y": 780,
+        "wires": [
+            [
+                "a8f09c6.82cf6e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2156ec1.96a5814",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "{\"brightness\":\"50\",\"rgb_color\":[255,0,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 740,
+        "wires": [
+            [
+                "95facd64.e78ea"
+            ]
+        ]
+    },
+    {
+        "id": "7b6ad593.07361c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "white",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.master_bath_white",
+        "data": "{\"brightness_pct\":\"50\",\"transition\":\"1000\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8068c7a6.f92848",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cca5a9d.dcf3b4",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "white",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.master_bath_white",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a8a24b7.af4e1c",
+        "type": "change",
+        "z": "832b5e75.3480d",
+        "name": "stop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1200,
+        "wires": [
+            [
+                "4bc0a867.17cac8"
+            ]
+        ]
+    },
+    {
+        "id": "c6d69446.361318",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "garage",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_4",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 70,
+        "y": 1600,
+        "wires": [
+            [
+                "9470303d.ff349"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "987562d.80ac1a",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "game",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.linear_wadwaz_1_door_window_sensor_sensor",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 70,
+        "y": 1740,
+        "wires": [
+            [
+                "af517a79.6dbde8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "87f50858.974738",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light-w",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_softwhite_0003fafb_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1130,
+        "y": 1040,
+        "wires": [
+            [],
+            [
+                "2ba77dcf.f9d012"
+            ]
+        ]
+    },
+    {
+        "id": "4f88b64f.477d98",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.patio_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 540,
+        "y": 1100,
+        "wires": [
+            [],
+            [
+                "161b9273.e5501e",
+                "e03a6bf5.4868e8"
+            ]
+        ]
+    },
+    {
+        "id": "464b3a91.d0d6d4",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "patio motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.patio_motion",
+        "entityidfiltertype": "substring",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": false,
+        "x": 170,
+        "y": 1120,
+        "wires": [
+            [
+                "e6bb8c6f.89b668"
+            ]
+        ]
+    },
+    {
+        "id": "186215b9.407e1a",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light-m",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_appliances_zll_light_0006d896_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1130,
+        "y": 1100,
+        "wires": [
+            [],
+            [
+                "4b3f92e7.c42dcc"
+            ]
+        ]
+    },
+    {
+        "id": "56676b42.c960c4",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light-e",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_softwhite_0003fafb_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1130,
+        "y": 1160,
+        "wires": [
+            [],
+            [
+                "6fdef9da.aec218"
+            ]
+        ]
+    },
+    {
+        "id": "6c597ff8.8e447",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "f6347d95.446b7"
+            ]
+        ]
+    },
+    {
+        "id": "af517a79.6dbde8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.patio_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 240,
+        "y": 1740,
+        "wires": [
+            [],
+            [
+                "d914ca21.7b0728",
+                "1e96436f.2562ed"
+            ]
+        ]
+    },
+    {
+        "id": "b25c09ec.2899e8",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Keep Awake",
+        "info": "",
+        "x": 90,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "9252feb5.7a407",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "patio m",
+        "server": "f84750e2.8059a",
+        "version": 0,
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_appliances_zll_light_0006d896_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 110,
+        "y": 1880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "491427b.e64f0d8",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "patio w",
+        "server": "f84750e2.8059a",
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_appliances_zll_light_000526db_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 110,
+        "y": 1940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86c25655.ac7e18",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "patio e",
+        "server": "f84750e2.8059a",
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_softwhite_0003fafb_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 110,
+        "y": 2000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec960435.64c9a8",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "gloft",
+        "server": "f84750e2.8059a",
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.cree_connected_a_19_60w_equivalent_fe01cce1_10",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 250,
+        "y": 1880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9a8522c.1f26d",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "gara",
+        "server": "f84750e2.8059a",
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_softwhite_0003b89d_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 250,
+        "y": 1940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c65d169a.563fe8",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "walkway",
+        "server": "f84750e2.8059a",
+        "updateinterval": "30",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_appliances_zll_light_00015079_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 260,
+        "y": 2000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b982ce69.988d",
+        "type": "poll-state",
+        "z": "832b5e75.3480d",
+        "name": "porch",
+        "server": "f84750e2.8059a",
+        "updateinterval": "10",
+        "updateIntervalUnits": "minutes",
+        "outputinitially": false,
+        "outputonchanged": false,
+        "entity_id": "light.ge_appliances_zll_light_0005ec37_1",
+        "state_type": "str",
+        "halt_if": "",
+        "halt_if_type": "num",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "x": 250,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7bd879a7.170e58",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "{\"brightness\":\"255\",\"rgb_color\":[255,255,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1050,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c837d1b6.e84d9",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "{\"brightness\":\"150\",\"rgb_color\":[255,127,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 750,
+        "y": 740,
+        "wires": [
+            [
+                "f4ccb1d4.37999"
+            ]
+        ]
+    },
+    {
+        "id": "95facd64.e78ea",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "10",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 600,
+        "y": 740,
+        "wires": [
+            [
+                "c837d1b6.e84d9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f4ccb1d4.37999",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "10",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 900,
+        "y": 740,
+        "wires": [
+            [
+                "7bd879a7.170e58"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e52e9f2b.2db7e",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light-string",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "switch.patio_string",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1150,
+        "y": 980,
+        "wires": [
+            [],
+            [
+                "62b41432.97f29c"
+            ]
+        ]
+    },
+    {
+        "id": "62b41432.97f29c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "string",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.patio_string",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a57e5c.39a741c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "string",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.patio_string",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1310,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89e53137.3f3e2",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "porch",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.ring_front_door_motion",
+        "entityidfiltertype": "substring",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 70,
+        "y": 2200,
+        "wires": [
+            [
+                "b74a174f.327c48"
+            ],
+            [
+                "edfd8969.ef08c8"
+            ]
+        ]
+    },
+    {
+        "id": "2fe4870a.83ca18",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.ge_appliances_zll_light_0005ec37_1",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 590,
+        "y": 2180,
+        "wires": [
+            [],
+            [
+                "cc0f7d82.9b824"
+            ]
+        ]
+    },
+    {
+        "id": "cc0f7d82.9b824",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "porch",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.ge_appliances_zll_light_0005ec37_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 750,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e485a80e.f7c0d8",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 600,
+        "y": 2240,
+        "wires": [
+            [
+                "9e7ba36e.44499"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9e7ba36e.44499",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "porch",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.ge_appliances_zll_light_0005ec37_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 750,
+        "y": 2240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c9f80d66.427ea",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "porch",
+        "info": "",
+        "x": 70,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "a6408392.d4ac7",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 890,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "d914ca21.7b0728",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 310,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "d7d33033.d4699",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 310,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "4e3a02cb.55431c",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 290,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "f6347d95.446b7",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "05:00",
+        "endTime": "dusk",
+        "startOffset": "0",
+        "endOffset": "-60",
+        "x": 590,
+        "y": 520,
+        "wires": [
+            [
+                "cbb57d1f.deb86"
+            ],
+            [
+                "9341d05a.b7ba4"
+            ]
+        ]
+    },
+    {
+        "id": "61125c5e.352ec4",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 1080,
+        "wires": [
+            [
+                "4f88b64f.477d98"
+            ]
+        ]
+    },
+    {
+        "id": "45090a21.84a314",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "string",
+        "server": "f84750e2.8059a",
+        "service_domain": "switch",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"switch.patio_string\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 750,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac385ca8.11084",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "patio motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.patio_motion",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 510,
+        "y": 1340,
+        "wires": [
+            [
+                "adc1e7a0.9862c8"
+            ]
+        ]
+    },
+    {
+        "id": "adc1e7a0.9862c8",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 1280,
+        "wires": [
+            [
+                "e03a6bf5.4868e8"
+            ],
+            [
+                "704c1252.b55dbc",
+                "628b1f44.c4138",
+                "3bd5f54c.17d6fa",
+                "45090a21.84a314"
+            ]
+        ]
+    },
+    {
+        "id": "161b9273.e5501e",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 570,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "63d5026d.119cec",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 620,
+        "y": 1780,
+        "wires": [
+            [
+                "2219a671.00f89a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f3a05f2c.53d07",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 620,
+        "y": 1640,
+        "wires": [
+            [
+                "6926bd49.61b7c4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e28af734.2c64e8",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 1600,
+        "wires": [
+            [
+                "f4a0e60.835dc18",
+                "f3a05f2c.53d07"
+            ],
+            [
+                "f3a05f2c.53d07"
+            ]
+        ]
+    },
+    {
+        "id": "1e96436f.2562ed",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 1740,
+        "wires": [
+            [
+                "6a4fbf8c.80a8",
+                "63d5026d.119cec"
+            ],
+            [
+                "63d5026d.119cec"
+            ]
+        ]
+    },
+    {
+        "id": "c0240469.4b52f8",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "00:01",
+        "endTime": "dusk",
+        "startOffset": "0",
+        "endOffset": "-60",
+        "x": 930,
+        "y": 1120,
+        "wires": [
+            [],
+            [
+                "e52e9f2b.2db7e",
+                "87f50858.974738",
+                "186215b9.407e1a",
+                "56676b42.c960c4"
+            ]
+        ]
+    },
+    {
+        "id": "6d625aa0.e42104",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "kitchen motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.kitchen_motion_2",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 80,
+        "y": 2600,
+        "wires": [
+            [
+                "d0d4f4a4.7259b8",
+                "35c8b4d1.17936c",
+                "b00a13aa.05ef08"
+            ],
+            [
+                "d0d4f4a4.7259b8",
+                "35c8b4d1.17936c"
+            ]
+        ]
+    },
+    {
+        "id": "d0d4f4a4.7259b8",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "5",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "",
+        "name": "",
+        "x": 420,
+        "y": 2660,
+        "wires": [
+            [
+                "aca37cf3.864fb",
+                "b22efbaf.680898"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f68ffd62.e26f9",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 450,
+        "y": 2460,
+        "wires": [
+            [
+                "2a57bb38.4127d4"
+            ]
+        ]
+    },
+    {
+        "id": "86e964c.c74f598",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 840,
+        "y": 2600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a57bb38.4127d4",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.65432058bcddc2292a92",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 680,
+        "y": 2440,
+        "wires": [
+            [],
+            [
+                "f6d52663.2ad1e8"
+            ]
+        ]
+    },
+    {
+        "id": "1ca63181.2cdf1e",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Kitchen",
+        "info": "",
+        "x": 70,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "3e7c384c.50e208",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "Hall",
+        "info": "",
+        "x": 70,
+        "y": 3020,
+        "wires": []
+    },
+    {
+        "id": "5412b081.c8c12",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "PM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "5004",
+        "endtime": "1380",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "-60",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 100,
+        "y": 3320,
+        "wires": [
+            [
+                "39866fc1.fe627"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d4a43891.758108",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 610,
+        "y": 3340,
+        "wires": [
+            [
+                "7ec2860a.bf1ba8"
+            ],
+            [
+                "631198e2.92eff8"
+            ]
+        ]
+    },
+    {
+        "id": "53d36ba7.777444",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 3220,
+        "wires": [
+            [
+                "5412b081.c8c12"
+            ]
+        ]
+    },
+    {
+        "id": "d15b2aac.871938",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 3260,
+        "wires": [
+            [
+                "5412b081.c8c12"
+            ]
+        ]
+    },
+    {
+        "id": "bbad6272.8f16b",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2291cd3",
+        "data": "{\"brightness\":\"200\",\"rgb_color\":[255,255,255]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 880,
+        "y": 3300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eec1ab08.80eb58",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.bar_lights",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 560,
+        "y": 3020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7149fe5.49e38",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "AM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "390",
+        "endtime": "450",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "0",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 100,
+        "y": 3380,
+        "wires": [
+            [
+                "cd2ad372.78e56"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ad847f7.a73248",
+        "type": "looptimer",
+        "z": "832b5e75.3480d",
+        "duration": "5",
+        "units": "Second",
+        "maxloops": "20",
+        "maxtimeout": "1",
+        "maxtimeoutunits": "Hour",
+        "name": "",
+        "x": 380,
+        "y": 2900,
+        "wires": [
+            [
+                "5c8d7316.f3a90c",
+                "354efb04.4c9984",
+                "e33e426e.b20b6"
+            ],
+            [
+                "eec1ab08.80eb58",
+                "845d389e.0e2438"
+            ]
+        ]
+    },
+    {
+        "id": "11384938.b72d17",
+        "type": "delay",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 720,
+        "y": 2960,
+        "wires": [
+            [
+                "6277d189.c4b71",
+                "16fa7dfd.884952"
+            ]
+        ]
+    },
+    {
+        "id": "5c8d7316.f3a90c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light-red",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2291cd3",
+        "data": "{\"brightness\":\"255\",\"rgb_color\":[255,0,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 570,
+        "y": 2840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6277d189.c4b71",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light-white",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2291cd3",
+        "data": "{\"brightness\":\"255\",\"rgb_color\":[255,255,255]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 940,
+        "y": 2960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f6d52663.2ad1e8",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "{\"brightness\":\"200\",\"rgb_color\":[255,255,255]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 840,
+        "y": 2440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b3e3e68.1ff7d18",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 370,
+        "y": 2600,
+        "wires": [
+            [
+                "d0d4f4a4.7259b8"
+            ]
+        ]
+    },
+    {
+        "id": "845d389e.0e2438",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 560,
+        "y": 2960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16fa7dfd.884952",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "{\"brightness\":\"255\",\"rgb_color\":[255,255,255]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 920,
+        "y": 2900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "354efb04.4c9984",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light red",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "{\"brightness\":\"255\",\"rgb_color\":[255,0,0]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 570,
+        "y": 2780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "892744c.4c614b8",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "",
+        "name": "",
+        "x": 450,
+        "y": 3840,
+        "wires": [
+            [
+                "222e8eef.f79282"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3e430efe.7a7a92",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "office motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.office_motion_new",
+        "entityidfiltertype": "substring",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 90,
+        "y": 3800,
+        "wires": [
+            [
+                "f258ffde.27ad"
+            ],
+            [
+                "892744c.4c614b8"
+            ]
+        ]
+    },
+    {
+        "id": "9096934c.ff4ea",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 3740,
+        "wires": [
+            [
+                "6be5cf8a.fd1b3"
+            ]
+        ]
+    },
+    {
+        "id": "3e478b21.e63c24",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 3860,
+        "wires": [
+            [
+                "892744c.4c614b8"
+            ]
+        ]
+    },
+    {
+        "id": "6be5cf8a.fd1b3",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "switch.26115078500291543794",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 3760,
+        "wires": [
+            [
+                "6d9df649.3f8988"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "222e8eef.f79282",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "office light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.26115078500291543794",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 660,
+        "y": 3840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d9df649.3f8988",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "office light",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.26115078500291543794",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 660,
+        "y": 3760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91bdcbbc.8b6be8",
+        "type": "comment",
+        "z": "832b5e75.3480d",
+        "name": "office",
+        "info": "",
+        "x": 70,
+        "y": 3680,
+        "wires": []
+    },
+    {
+        "id": "c34792cf.e59d9",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light- dim",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.65432058bcddc2291cd3",
+        "data": "{\"brightness\":\"170\",\"rgb_color\":[255,130,40]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 850,
+        "y": 3120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d1b5e4c.8f489",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "PM Lights",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "1290",
+        "endtime": "1380",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "0",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 100,
+        "y": 3140,
+        "wires": [
+            [
+                "fa326d09.cade28"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5899ca1c.52f3b4",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 3120,
+        "wires": [
+            [
+                "7ff110c1.71cf2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "466178e8.c7fe68",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 3080,
+        "wires": [
+            [
+                "5899ca1c.52f3b4"
+            ]
+        ]
+    },
+    {
+        "id": "3baf1f62.216c8",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "front door",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_3",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 80,
+        "y": 2280,
+        "wires": [
+            [
+                "1ecb4b2a.a5b3d5"
+            ],
+            [
+                "6cd7d940.55ede8"
+            ]
+        ]
+    },
+    {
+        "id": "5c1072b8.8bd32c",
+        "type": "change",
+        "z": "832b5e75.3480d",
+        "name": "stop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 1280,
+        "wires": [
+            [
+                "4bc0a867.17cac8"
+            ]
+        ]
+    },
+    {
+        "id": "631198e2.92eff8",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.bar_lights\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 820,
+        "y": 3360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1d73913.ecfd98",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "school",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "27 07 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 2840,
+        "wires": [
+            [
+                "50921aa3.f287b4"
+            ]
+        ]
+    },
+    {
+        "id": "f87cc6f7.adb308",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "sink light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.65432058bcddc2292a92",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 820,
+        "y": 2780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c084a78.fc2346",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "hall light",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.bar_lights",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 820,
+        "y": 2840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e33e426e.b20b6",
+        "type": "delay",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 580,
+        "y": 2900,
+        "wires": [
+            [
+                "11384938.b72d17",
+                "f87cc6f7.adb308",
+                "2c084a78.fc2346"
+            ]
+        ]
+    },
+    {
+        "id": "301b936.3545b6c",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "hall motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.ecolink_motion_detector_sensor",
+        "entityidfiltertype": "substring",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 80,
+        "y": 3540,
+        "wires": [
+            [
+                "35f695cf.4f5a6a"
+            ],
+            [
+                "2d8132f4.4804ae"
+            ]
+        ]
+    },
+    {
+        "id": "b81f79ff.77d5f8",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "2",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 820,
+        "y": 3560,
+        "wires": [
+            [
+                "7a71c332.93410c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a03b8cda.ff3d9",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "5:00",
+        "endTime": "23:00",
+        "startOffset": "0",
+        "endOffset": "0",
+        "x": 630,
+        "y": 3460,
+        "wires": [
+            [
+                "72eb580e.e41bc8"
+            ],
+            [
+                "a742e99a.de56c8"
+            ]
+        ]
+    },
+    {
+        "id": "434ce72c.f50fd8",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 450,
+        "y": 3460,
+        "wires": [
+            [
+                "a03b8cda.ff3d9"
+            ]
+        ]
+    },
+    {
+        "id": "7a71c332.93410c",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_off",
+        "data": "{\"entity_id\":\"light.65432058bcddc2291cd3\"}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 970,
+        "y": 3560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a742e99a.de56c8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.65432058bcddc2291cd3",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 810,
+        "y": 3500,
+        "wires": [
+            [
+                "1c22a7b0.5db538"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1c22a7b0.5db538",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_on",
+        "data": "{\"entity_id\":\"light.65432058bcddc2291cd3\",\"brightness\":\"75\",\"rgb_color\":[255,0,0]}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 970,
+        "y": 3500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "223abe73.7f63d2",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "5:00",
+        "endTime": "23:00",
+        "startOffset": "0",
+        "endOffset": "0",
+        "x": 610,
+        "y": 3560,
+        "wires": [
+            [],
+            [
+                "b81f79ff.77d5f8"
+            ]
+        ]
+    },
+    {
+        "id": "f7756f75.f2818",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 710,
+        "y": 3620,
+        "wires": [
+            [
+                "b81f79ff.77d5f8"
+            ]
+        ]
+    },
+    {
+        "id": "72eb580e.e41bc8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check light",
+        "server": "f84750e2.8059a",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.65432058bcddc2291cd3",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 810,
+        "y": 3440,
+        "wires": [
+            [
+                "9778b479.95b028"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9778b479.95b028",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "service_domain": "light",
+        "service": "turn_on",
+        "data": "{\"entity_id\":\"light.65432058bcddc2291cd3\",\"brightness\":\"150\",\"rgb_color\":[255,255,255]}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 970,
+        "y": 3460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2ea9e8c.5b62a",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "color",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.36613050840d8e82dfd3",
+        "data": "{\"brightness\":\"150\",\"rgb_color\":[255,255,255]}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1010,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b74a174f.327c48",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.porch_auto",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 310,
+        "y": 2160,
+        "wires": [
+            [
+                "2fe4870a.83ca18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "31a6879f.abf598",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "motion",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "entity: binary_sensor.lr_motion",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "733fde79.ad154"
+            ],
+            [
+                "175d8e73.02ae32"
+            ]
+        ]
+    },
+    {
+        "id": "cb720c8c.cbbd8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "lux",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "2",
+        "halt_if_type": "num",
+        "halt_if_compare": "lt",
+        "override_topic": false,
+        "entity_id": "sensor.aeon_labs_zw100_multisensor_6_luminance",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "8465d545.239e68"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "edfd8969.ef08c8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.porch_auto",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 310,
+        "y": 2220,
+        "wires": [
+            [
+                "e485a80e.f7c0d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1ecb4b2a.a5b3d5",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.porch_auto",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 310,
+        "y": 2280,
+        "wires": [
+            [
+                "2fe4870a.83ca18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6cd7d940.55ede8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.porch_auto",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 310,
+        "y": 2340,
+        "wires": [
+            [
+                "e485a80e.f7c0d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9fdb202f.41849",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 670,
+        "y": 60,
+        "wires": [
+            [
+                "6a7f1de4.62efd4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d26f4afe.2bd7a8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "8465d545.239e68"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8369588f.adabf8",
+        "type": "server-state-changed",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "binary_sensor.people_home",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 70,
+        "y": 180,
+        "wires": [
+            [
+                "4d2f711f.496c7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4d2f711f.496c7",
+        "type": "change",
+        "z": "832b5e75.3480d",
+        "name": "sync",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "sync",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "19ca57d3.485128",
+                "e3f8aa7f.903c98",
+                "8857d3b7.8d3cc"
+            ]
+        ]
+    },
+    {
+        "id": "7ff110c1.71cf2",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 690,
+        "y": 3120,
+        "wires": [
+            [
+                "c34792cf.e59d9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7ec2860a.bf1ba8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 750,
+        "y": 3300,
+        "wires": [
+            [
+                "bbad6272.8f16b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "50921aa3.f287b4",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 230,
+        "y": 2880,
+        "wires": [
+            [
+                "6ad847f7.a73248"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "175d8e73.02ae32",
+        "type": "stoptimer",
+        "z": "832b5e75.3480d",
+        "duration": "5",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 480,
+        "y": 380,
+        "wires": [
+            [
+                "ea6fccb6.5ff8e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "223a641c.e87e0c",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "51896cb1.84cd94"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "733fde79.ad154",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "cb720c8c.cbbd8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f8816153.1165f",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "e1010455.e300e8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "81bbd08.4273d3",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 2540,
+        "wires": [
+            [
+                "2a57bb38.4127d4",
+                "330efdce.48f482"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7d99611a.89f0a",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.hall_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 400,
+        "y": 3140,
+        "wires": [
+            [
+                "5899ca1c.52f3b4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "faf92d3e.43e0d",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.hall_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 440,
+        "y": 3320,
+        "wires": [
+            [
+                "d4a43891.758108"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "108a7f55.f2e001",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.hall_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 440,
+        "y": 3380,
+        "wires": [
+            [
+                "d4a43891.758108"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "44b1a55e.40526c",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.hall_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 420,
+        "y": 3500,
+        "wires": [
+            [
+                "a03b8cda.ff3d9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2d8132f4.4804ae",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.hall_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 420,
+        "y": 3560,
+        "wires": [
+            [
+                "223abe73.7f63d2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "215686b0.e520da",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "kitchen lights",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.kitchen_lights",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1030,
+        "y": 2540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35c8b4d1.17936c",
+        "type": "debug",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 130,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "c97b4bf4.fedb48",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "kitchen lights",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.kitchen_lights",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 850,
+        "y": 2660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c92e5106.e719f",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "light.kitchen_lights",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 860,
+        "y": 2540,
+        "wires": [
+            [
+                "215686b0.e520da"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aca37cf3.864fb",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 680,
+        "y": 2660,
+        "wires": [
+            [
+                "c97b4bf4.fedb48"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b22efbaf.680898",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "check settings",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "input_boolean.lr_auto",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 680,
+        "y": 2600,
+        "wires": [
+            [
+                "86e964c.c74f598"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f258ffde.27ad",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "person.james_2",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 250,
+        "y": 3780,
+        "wires": [
+            [
+                "6be5cf8a.fd1b3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d1c13f66.6323d",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "christmas tree off",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.leviton_dzpd3_1lw_plug_in_dimming_lamp_module_level",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 4060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "503e0dcc.353da4",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "christmas tree on",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.leviton_dzpd3_1lw_plug_in_dimming_lamp_module_level",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 450,
+        "y": 4000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1667ad30.1b5723",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": 5001,
+        "endtime": "1380",
+        "starttime2": "300",
+        "endtime2": "450",
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 120,
+        "y": 4040,
+        "wires": [
+            [
+                "d06797be.966e88"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d06797be.966e88",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 4040,
+        "wires": [
+            [
+                "503e0dcc.353da4"
+            ],
+            [
+                "d1c13f66.6323d"
+            ]
+        ]
+    },
+    {
+        "id": "ef2c9fd7.1c7ed",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "humidifier on",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.40834308500291b253fc",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 430,
+        "y": 4180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7269d81.f0ce1",
+        "type": "api-call-service",
+        "z": "832b5e75.3480d",
+        "name": "humidifier off",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.40834308500291b253fc",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 430,
+        "y": 4240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3076e6f8.9505aa",
+        "type": "bigtimer",
+        "z": "832b5e75.3480d",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "1200",
+        "endtime": "420",
+        "starttime2": "0",
+        "endtime2": "0",
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 120,
+        "y": 4220,
+        "wires": [
+            [
+                "e8a43eac.717c6"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e8a43eac.717c6",
+        "type": "switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 4220,
+        "wires": [
+            [
+                "ef2c9fd7.1c7ed"
+            ],
+            [
+                "f7269d81.f0ce1"
+            ]
+        ]
+    },
+    {
+        "id": "394bbf1c.d80ee",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 3940,
+        "wires": [
+            [
+                "1667ad30.1b5723"
+            ]
+        ]
+    },
+    {
+        "id": "5befb8c3.ccb288",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 3980,
+        "wires": [
+            [
+                "1667ad30.1b5723"
+            ]
+        ]
+    },
+    {
+        "id": "5f127f0e.ce5f",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 4120,
+        "wires": [
+            [
+                "3076e6f8.9505aa"
+            ]
+        ]
+    },
+    {
+        "id": "3d372460.31a74c",
+        "type": "inject",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "topic": "",
+        "payload": "auto",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 4160,
+        "wires": [
+            [
+                "3076e6f8.9505aa"
+            ]
+        ]
+    },
+    {
+        "id": "e6bb8c6f.89b668",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 330,
+        "y": 1120,
+        "wires": [
+            [
+                "4f88b64f.477d98"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "da7055b4.519ca8",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 390,
+        "y": 540,
+        "wires": [
+            [
+                "f6347d95.446b7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a8f09c6.82cf6e",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 250,
+        "y": 740,
+        "wires": [
+            [
+                "67133254.3c65ac"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "646866b.a0b1b18",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 210,
+        "y": 1420,
+        "wires": [
+            [
+                "dcf1ab9d.cbc358"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b00a13aa.05ef08",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 270,
+        "y": 2540,
+        "wires": [
+            [
+                "81bbd08.4273d3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fa326d09.cade28",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 250,
+        "y": 3140,
+        "wires": [
+            [
+                "7d99611a.89f0a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "39866fc1.fe627",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 270,
+        "y": 3320,
+        "wires": [
+            [
+                "faf92d3e.43e0d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cd2ad372.78e56",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 270,
+        "y": 3380,
+        "wires": [
+            [
+                "108a7f55.f2e001"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "35f695cf.4f5a6a",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "home",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": true,
+        "entity_id": "binary_sensor.people_home",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 250,
+        "y": 3520,
+        "wires": [
+            [
+                "44b1a55e.40526c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3909928e.1df0de",
+        "type": "api-current-state",
+        "z": "832b5e75.3480d",
+        "name": "guests?",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.guests",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 720,
+        "y": 2500,
+        "wires": [
+            [
+                "c92e5106.e719f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "330efdce.48f482",
+        "type": "time-range-switch",
+        "z": "832b5e75.3480d",
+        "name": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "startTime": "23:45",
+        "endTime": "08:00",
+        "startOffset": "0",
+        "endOffset": "0",
+        "x": 590,
+        "y": 2560,
+        "wires": [
+            [
+                "3909928e.1df0de"
+            ],
+            [
+                "c92e5106.e719f"
+            ]
+        ]
+    },
+    {
+        "id": "f84750e2.8059a",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "hassio": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open"
+    }
+]
