@@ -1,0 +1,2369 @@
+[
+    {
+        "id": "8fb02bb6.71fd98",
+        "type": "tab",
+        "label": "new pool",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "441b82a3.6386ac",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Override",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "High",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Medium",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Low",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Auto",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "f55bbc5a.81351"
+            ],
+            [
+                "f55bbc5a.81351"
+            ],
+            [
+                "f55bbc5a.81351"
+            ],
+            [
+                "f55bbc5a.81351"
+            ],
+            [
+                "58b9ce85.3cf26",
+                "7a8d503.80de1b",
+                "de551b9f.618f68",
+                "d56cef44.efdca",
+                "c2df7f6a.0b047",
+                "b492cb0b.204388"
+            ],
+            [
+                "8382ecfb.bb6df",
+                "3f6b046d.83aebc",
+                "586599c9.bff8a8",
+                "9228b3ea.ba13",
+                "36f0e3fa.4468cc",
+                "c2df7f6a.0b047",
+                "b492cb0b.204388"
+            ]
+        ]
+    },
+    {
+        "id": "9c7b1a86.5a7138",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "input_select.pump_setting",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 90,
+        "y": 520,
+        "wires": [
+            [
+                "4089000d.655d5",
+                "441b82a3.6386ac"
+            ]
+        ]
+    },
+    {
+        "id": "f55bbc5a.81351",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "speed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "speed",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "3787700f.13306"
+            ]
+        ]
+    },
+    {
+        "id": "8382ecfb.bb6df",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 590,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "3f6b046d.83aebc",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "remaining",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "input_text",
+        "service": "set_value",
+        "entityId": "input_text.pool_timer_manual",
+        "data": "{\"value\":\"0 minutes\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 600,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "586599c9.bff8a8",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "high",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "calendar.pool_high",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 590,
+        "y": 720,
+        "wires": [
+            [
+                "e3602a13.123168"
+            ],
+            [
+                "a2abc071.1193"
+            ]
+        ]
+    },
+    {
+        "id": "9228b3ea.ba13",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "calendar.pool_medium",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 590,
+        "y": 780,
+        "wires": [
+            [
+                "86750c27.980a5"
+            ],
+            [
+                "a4fc4227.135c4"
+            ]
+        ]
+    },
+    {
+        "id": "36f0e3fa.4468cc",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "calendar.pool_low",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "89ade5d9.e83498"
+            ],
+            [
+                "3e0dd064.6c6ed"
+            ]
+        ]
+    },
+    {
+        "id": "702b33aa.76387c",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 270,
+        "y": 440,
+        "wires": [
+            [
+                "441b82a3.6386ac"
+            ]
+        ]
+    },
+    {
+        "id": "4089000d.655d5",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 250,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "3787700f.13306",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "timer",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_number.povertime",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "cc6fbeed.dd08e"
+            ]
+        ]
+    },
+    {
+        "id": "d56cef44.efdca",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 790,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de551b9f.618f68",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 790,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58b9ce85.3cf26",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Override",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_over",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 800,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a8d503.80de1b",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 790,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "551bb814.bffc78",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 960,
+        "wires": [
+            [
+                "70307d4f.263124"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "faeaa5.92630558",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 1040,
+        "wires": [
+            [
+                "a3edffd9.1e99d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "adf8d7f0.856688",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 1120,
+        "wires": [
+            [
+                "12f3b383.49bdec"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "57634ff5.6ae4c",
+        "type": "inject",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 460,
+        "wires": [
+            [
+                "702b33aa.76387c"
+            ]
+        ]
+    },
+    {
+        "id": "edd8102e.9a12d",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "timer",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "input_number.povertime",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "0",
+        "halt_if_type": "num",
+        "halt_if_compare": "is_not",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "702b33aa.76387c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cc6fbeed.dd08e",
+        "type": "string",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "methods": [
+            {
+                "name": "toInteger",
+                "params": []
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "58530dd3.41def4"
+            ]
+        ]
+    },
+    {
+        "id": "36768a30.4bf176",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "calendar.pool_low",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": false,
+        "x": 130,
+        "y": 1120,
+        "wires": [
+            [
+                "adf8d7f0.856688"
+            ],
+            [
+                "6d92718f.3e25a"
+            ]
+        ]
+    },
+    {
+        "id": "f19be017.13b7c",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "timeout",
+        "targetType": "msg",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9b3714ba.190378",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 970,
+        "y": 200,
+        "wires": [
+            [
+                "cd757165.ba86",
+                "26e17d99.bcad32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4252e052.b9f03",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d9762a00.4dee68",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "Seconds to Minutes",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "timer/3600*60",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 300,
+        "wires": [
+            [
+                "9fe3d7.1695ec28"
+            ]
+        ]
+    },
+    {
+        "id": "9b856c01.a8527",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "timer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"timer \" & msg.payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "4b66b0da.e514a",
+                "c1ad3965.ef6f68"
+            ]
+        ]
+    },
+    {
+        "id": "cd25c41d.2a81d8",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "calendar.pool_medium",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 130,
+        "y": 1060,
+        "wires": [
+            [
+                "faeaa5.92630558"
+            ],
+            [
+                "25a894e3.6984fc"
+            ]
+        ]
+    },
+    {
+        "id": "31fd2818.a309d8",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "high",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "calendar.pool_high",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "551bb814.bffc78"
+            ],
+            [
+                "8f6f6c0b.01827"
+            ]
+        ]
+    },
+    {
+        "id": "70307d4f.263124",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3edffd9.1e99d",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": true,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12f3b383.49bdec",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58530dd3.41def4",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "Hours to Seconds",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload*3600",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "9b856c01.a8527"
+            ]
+        ]
+    },
+    {
+        "id": "27e5bedb.6265d2",
+        "type": "inject",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "cc6fbeed.dd08e"
+            ]
+        ]
+    },
+    {
+        "id": "cd757165.ba86",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 970,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "26e17d99.bcad32",
+        "type": "rbe",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "data.state",
+        "x": 1170,
+        "y": 280,
+        "wires": [
+            [
+                "de63ff2b.56af9"
+            ]
+        ]
+    },
+    {
+        "id": "9fe3d7.1695ec28",
+        "type": "string",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "methods": [
+            {
+                "name": "toInteger",
+                "params": []
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1090,
+        "y": 340,
+        "wires": [
+            [
+                "7735dfc4.ea7f2"
+            ]
+        ]
+    },
+    {
+        "id": "4b66b0da.e514a",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "de63ff2b.56af9",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "speed",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Override",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "High",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Medium",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Low",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1170,
+        "y": 200,
+        "wires": [
+            [
+                "e9390a80.f5c4a8"
+            ],
+            [
+                "3158415f.785dfe"
+            ],
+            [
+                "9533f29b.1077"
+            ],
+            [
+                "de99a4f6.05f098"
+            ]
+        ]
+    },
+    {
+        "id": "7735dfc4.ea7f2",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 1270,
+        "y": 360,
+        "wires": [
+            [
+                "556b743e.2ca3ec"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e9390a80.f5c4a8",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1410,
+        "y": 140,
+        "wires": [
+            [
+                "9c4cb02f.dffd6"
+            ],
+            [
+                "2c2bd98.c777a26"
+            ]
+        ]
+    },
+    {
+        "id": "3158415f.785dfe",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1410,
+        "y": 180,
+        "wires": [
+            [
+                "c1ebd2bf.0934b"
+            ],
+            [
+                "a9a31ad5.6a8598"
+            ]
+        ]
+    },
+    {
+        "id": "9533f29b.1077",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1410,
+        "y": 220,
+        "wires": [
+            [
+                "4240c254.ce3b9c"
+            ],
+            [
+                "4241c754.029298"
+            ]
+        ]
+    },
+    {
+        "id": "de99a4f6.05f098",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1410,
+        "y": 260,
+        "wires": [
+            [
+                "1733ec2f.4e9e84"
+            ],
+            [
+                "cfd38f35.734a5"
+            ]
+        ]
+    },
+    {
+        "id": "556b743e.2ca3ec",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "remaining",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_text",
+        "service": "set_value",
+        "entityId": "input_text.pool_timer_manual",
+        "data": "{\"value\":\"{{payload}} minutes\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1420,
+        "y": 560,
+        "wires": [
+            [
+                "7ba80f47.14582",
+                "78bc168.d8aa9e8"
+            ]
+        ]
+    },
+    {
+        "id": "9c4cb02f.dffd6",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Override",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_over",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1640,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c2bd98.c777a26",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Override",
+        "server": "f84750e2.8059a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_over",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1640,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1ebd2bf.0934b",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9a31ad5.6a8598",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4240c254.ce3b9c",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4241c754.029298",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1733ec2f.4e9e84",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfd38f35.734a5",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 1630,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ba80f47.14582",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1570,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "78bc168.d8aa9e8",
+        "type": "switch",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "property": "payload.data.value",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0 minutes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1580,
+        "y": 560,
+        "wires": [
+            [
+                "cb0b9f6e.85d31",
+                "5e136125.c89f5"
+            ]
+        ]
+    },
+    {
+        "id": "cb0b9f6e.85d31",
+        "type": "rbe",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 1590,
+        "y": 500,
+        "wires": [
+            [
+                "fabc5adf.4f1fb8"
+            ]
+        ]
+    },
+    {
+        "id": "5e136125.c89f5",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1730,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "fabc5adf.4f1fb8",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1770,
+        "y": 500,
+        "wires": [
+            [
+                "6a37145.118e2ec",
+                "e4cea831.bf2c98"
+            ]
+        ]
+    },
+    {
+        "id": "6a37145.118e2ec",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1890,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e4cea831.bf2c98",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "back to auto",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": true,
+        "service_domain": "input_select",
+        "service": "select_option",
+        "entityId": "input_select.pump_setting",
+        "data": "{\"entity_id\":\"input_select.pump_setting\",\"option\":\"Auto\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1890,
+        "y": 560,
+        "wires": [
+            [
+                "ae1c4699.35c178"
+            ]
+        ]
+    },
+    {
+        "id": "ae1c4699.35c178",
+        "type": "debug",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1990,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9164cf4d.3236",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65679fb7.3466f",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c554b91.706d94",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 610,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f6f6c0b.01827",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 1000,
+        "wires": [
+            [
+                "3c554b91.706d94"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "25a894e3.6984fc",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 1080,
+        "wires": [
+            [
+                "65679fb7.3466f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6d92718f.3e25a",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "pump setting",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "Auto",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_select.pump_setting",
+        "state_type": "str",
+        "state_location": "",
+        "override_payload": "none",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 1160,
+        "wires": [
+            [
+                "9164cf4d.3236"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c3dc5f18.09609",
+        "type": "comment",
+        "z": "8fb02bb6.71fd98",
+        "name": "Pool Calander",
+        "info": "",
+        "x": 90,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "163e0b82.423294",
+        "type": "api-current-state",
+        "z": "8fb02bb6.71fd98",
+        "name": "continue",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "input_boolean.robot",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 560,
+        "y": 1700,
+        "wires": [
+            [
+                "7441fb9f.445f84"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ad23fd7a.eb5d5",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "robot off",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.008420312cf432a3fe7a_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 560,
+        "y": 1540,
+        "wires": [
+            [
+                "163e0b82.423294"
+            ]
+        ]
+    },
+    {
+        "id": "7441fb9f.445f84",
+        "type": "stoptimer",
+        "z": "8fb02bb6.71fd98",
+        "duration": "10",
+        "units": "Minute",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 200,
+        "y": 1600,
+        "wires": [
+            [
+                "4d8f1493.3ce52c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "708bd754.62ee58",
+        "type": "stoptimer",
+        "z": "8fb02bb6.71fd98",
+        "duration": "2",
+        "units": "Hour",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "",
+        "x": 430,
+        "y": 1600,
+        "wires": [
+            [
+                "ad23fd7a.eb5d5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4d8f1493.3ce52c",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "robot on",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.008420312cf432a3fe7a_1",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 300,
+        "y": 1540,
+        "wires": [
+            [
+                "708bd754.62ee58"
+            ]
+        ]
+    },
+    {
+        "id": "406e3e8c.939a",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "robot",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "calendar.pool_robot",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 130,
+        "y": 1540,
+        "wires": [
+            [
+                "4d8f1493.3ce52c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e3602a13.123168",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86750c27.980a5",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": true,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89ade5d9.e83498",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e0dd064.6c6ed",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_low",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4fc4227.135c4",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "Med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_med",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2abc071.1193",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "High",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.pool_high",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "mustacheAltTags": false,
+        "x": 770,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2df7f6a.0b047",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "stop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 360,
+        "wires": [
+            [
+                "c1ad3965.ef6f68"
+            ]
+        ]
+    },
+    {
+        "id": "c1ad3965.ef6f68",
+        "type": "bigtimer",
+        "z": "8fb02bb6.71fd98",
+        "outtopic": "",
+        "outpayload1": "on",
+        "outpayload2": "off",
+        "name": "override timer",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "0",
+        "endtime": "0",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "0",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": "72000",
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": true,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 780,
+        "y": 240,
+        "wires": [
+            [
+                "9b3714ba.190378"
+            ],
+            [
+                "4252e052.b9f03",
+                "d9762a00.4dee68"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2411be4f.a3e1d2",
+        "type": "inject",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "c1ad3965.ef6f68"
+            ]
+        ]
+    },
+    {
+        "id": "b2890aae.b97598",
+        "type": "inject",
+        "z": "8fb02bb6.71fd98",
+        "name": "",
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 710,
+        "y": 120,
+        "wires": [
+            [
+                "c1ad3965.ef6f68"
+            ]
+        ]
+    },
+    {
+        "id": "b492cb0b.204388",
+        "type": "change",
+        "z": "8fb02bb6.71fd98",
+        "name": "speed off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "speed",
+                "pt": "flow",
+                "to": "off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8bd3146c.3a69b8",
+        "type": "comment",
+        "z": "8fb02bb6.71fd98",
+        "name": "Pool Overrides",
+        "info": "",
+        "x": 100,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5b3ccdc3.677554",
+        "type": "comment",
+        "z": "8fb02bb6.71fd98",
+        "name": "Pool Robot",
+        "info": "",
+        "x": 80,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "d902f245.4d3f6",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "over",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "switch.pool_over",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 110,
+        "y": 1260,
+        "wires": [
+            [
+                "48a8f387.9905ec"
+            ],
+            [
+                "efb9b34a.032d"
+            ]
+        ]
+    },
+    {
+        "id": "251a5a44.bb3dc6",
+        "type": "comment",
+        "z": "8fb02bb6.71fd98",
+        "name": "Status Light",
+        "info": "",
+        "x": 90,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "b0fc9b91.586a68",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "high",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "switch.pool_high",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 110,
+        "y": 1300,
+        "wires": [
+            [
+                "48a8f387.9905ec"
+            ],
+            [
+                "efb9b34a.032d"
+            ]
+        ]
+    },
+    {
+        "id": "6e25d469.aea1ac",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "med",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "switch.pool_med",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 110,
+        "y": 1340,
+        "wires": [
+            [
+                "48a8f387.9905ec"
+            ],
+            [
+                "efb9b34a.032d"
+            ]
+        ]
+    },
+    {
+        "id": "1f5d2983.e8b4e6",
+        "type": "server-state-changed",
+        "z": "8fb02bb6.71fd98",
+        "name": "low",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "entityidfilter": "switch.pool_low",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 110,
+        "y": 1380,
+        "wires": [
+            [
+                "48a8f387.9905ec"
+            ],
+            [
+                "efb9b34a.032d"
+            ]
+        ]
+    },
+    {
+        "id": "48a8f387.9905ec",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "light on",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.pump_light",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 400,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efb9b34a.032d",
+        "type": "api-call-service",
+        "z": "8fb02bb6.71fd98",
+        "name": "light off",
+        "server": "f84750e2.8059a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.pump_light",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 400,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f84750e2.8059a",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "hassio": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open"
+    }
+]
