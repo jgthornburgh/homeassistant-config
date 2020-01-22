@@ -9,6 +9,7 @@
   * [Plugs](https://github.com/jgthornburgh/homeassistant-config#plugs)
   * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
+  * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#BBQ-Controller)
 * [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
 * [Node-Red](https://github.com/jgthornburgh/homeassistant-config#node-red-flows)
 
@@ -28,13 +29,17 @@
 
 ## HACS
 * [HOME ASSISTANT COMMUNITY STORE](https://github.com/hacs/integration)
-* [Custom Compact Header](https://github.com/maykar/compact-custom-header)
+* [Custom Header](https://github.com/maykar/custom-header)
   * Cards shown based on User Account
   * Swipe Enabeled
 * [Mini-Graph-Card](https://github.com/kalkih/mini-graph-card)
 * [vertical-stack-in-card](https://github.com/custom-cards/vertical-stack-in-card)
 * [Calendar Card](https://github.com/ljmerza/calendar-card)
   * Show events from Google Calendar
+* [Love Lock Card](https://github.com/CyrisXD/love-lock-card)
+* [Node Red](https://github.com/zachowj/hass-node-red)
+  * Enabale and disable flows from HA
+  * Create sensors from NR
 
 ***
 # Devices
@@ -200,16 +205,38 @@
 ## Vacuume
 * [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
 
-## BBQ
-* [Heatermeter](https://github.com/CapnBry/HeaterMeter/wiki)
+## BBQ Controller
+* [NodeMCU ESP32](https://amzn.to/37jXDiS) 
   * WiFi
-  * Template Sensor
-  * `code`
+  * [128x64 OLED Display SSD1306](https://amzn.to/36j2FuX)
+  * [Blower](https://amzn.to/37jXM5U)
+  * [Socket](https://amzn.to/2NQdoq8) (4x)
+  * [Pit and Meat Probe ET732](https://amzn.to/30Ij3Uo)
+  * [Meat Probes (2x) ET732](https://amzn.to/2tFc42s)
+  * [1.5Mohm Resistor](https://amzn.to/2NNBRMI) (4x)
+  * ESPHome
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/bbq.jpg)
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/bbq-display1.jpg)
+    * Intro
+   
+      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-intro.PNG)
+    * For each Probe
+   
+      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-probe.PNG) 
+    * Call for measurement 
+   
+      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-measure.PNG)
+    * Display
+   
+      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-display.PNG)
+  
 ## Cameras (yet to be installed)
 * [Reolink 8CH 5MP PoE Home Security Camera System](https://amzn.to/2YKa0Bt)
   * 20-5MP Bullet Camera (2X)
   * 420-5MP Dome Camera (2X)
 * [Reolink 420-5MP Dome Camera](https://amzn.to/2LKFEcO) (2X)
+* [Reolink Custom Component](https://github.com/fwestenberg/reolink
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cameras.jpg)
 
 ***
 # Integrations
