@@ -9,7 +9,7 @@
   * [Plugs](https://github.com/jgthornburgh/homeassistant-config#plugs)
   * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
-  * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#BBQ-Controller)
+  * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#bbq-controller-still-under-development)
 * [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
 * [Node-Red](https://github.com/jgthornburgh/homeassistant-config#node-red-flows)
 
