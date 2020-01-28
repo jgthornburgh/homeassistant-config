@@ -1,0 +1,379 @@
+[
+    {
+        "id": "b2741b51.062988",
+        "type": "tab",
+        "label": "backup",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "5e39e59c.1f256c",
+        "type": "switch",
+        "z": "b2741b51.062988",
+        "name": "ON only",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "97053da4.27618",
+                "595e359c.54b96c",
+                "d4f1406.31680c"
+            ]
+        ]
+    },
+    {
+        "id": "595e359c.54b96c",
+        "type": "delay",
+        "z": "b2741b51.062988",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "hours",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 680,
+        "y": 280,
+        "wires": [
+            [
+                "1f841832.a81308"
+            ]
+        ]
+    },
+    {
+        "id": "1f841832.a81308",
+        "type": "api-call-service",
+        "z": "b2741b51.062988",
+        "name": "hassio",
+        "server": "f84750e2.8059a",
+        "service_domain": "hassio",
+        "service": "addon_stdin",
+        "data": "{\"addon\":\"7be23ff5_dropbox_sync\",\"input\":{\"command\":\"upload\"}}",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 850,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "97053da4.27618",
+        "type": "function",
+        "z": "b2741b51.062988",
+        "name": "format snapshot",
+        "func": "msg.payload = \n{\n  \"data\": \n  {\n    \"name\": (new Date().toISOString().replace(':', '_').replace(':', '_').replace(/\\..+/, ''))+\"_Snapshot\",\n    \"folders\":[\"homeassistant\",\"share\"]\n  }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "4fe6d58b.bc2cdc",
+                "cc5b8481.c86ca8"
+            ]
+        ]
+    },
+    {
+        "id": "e9f4249a.2b9c48",
+        "type": "rbe",
+        "z": "b2741b51.062988",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "5e39e59c.1f256c",
+                "b2c740aa.b7e0d"
+            ]
+        ]
+    },
+    {
+        "id": "5950fc5d.b48ee4",
+        "type": "bigtimer",
+        "z": "b2741b51.062988",
+        "outtopic": "",
+        "outpayload1": "ON",
+        "outpayload2": "off",
+        "name": "Monday",
+        "comment": "",
+        "lat": "36.751965",
+        "lon": "-119.711711",
+        "starttime": "30",
+        "endtime": "1380",
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": "-60",
+        "endoff": 0,
+        "startoff2": "",
+        "endoff2": "",
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": false,
+        "mon": true,
+        "tue": false,
+        "wed": false,
+        "thu": true,
+        "fri": false,
+        "sat": false,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "repeat": false,
+        "atstart": false,
+        "odd": false,
+        "even": false,
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "e9f4249a.2b9c48"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2c64e58.520cd1a",
+        "type": "inject",
+        "z": "b2741b51.062988",
+        "name": "",
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "e9f4249a.2b9c48"
+            ]
+        ]
+    },
+    {
+        "id": "24a34053.90c47",
+        "type": "inject",
+        "z": "b2741b51.062988",
+        "name": "",
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "595e359c.54b96c"
+            ]
+        ]
+    },
+    {
+        "id": "98b54a9d.bb3c68",
+        "type": "inject",
+        "z": "b2741b51.062988",
+        "name": "",
+        "topic": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "1f841832.a81308"
+            ]
+        ]
+    },
+    {
+        "id": "4fe6d58b.bc2cdc",
+        "type": "api-call-service",
+        "z": "b2741b51.062988",
+        "name": "hassio",
+        "server": "f84750e2.8059a",
+        "service_domain": "hassio",
+        "service": "snapshot_partial",
+        "data": "",
+        "mergecontext": "",
+        "output_location": "payload",
+        "output_location_type": "msg",
+        "x": 910,
+        "y": 360,
+        "wires": [
+            [
+                "55d3026b.d11dfc"
+            ]
+        ]
+    },
+    {
+        "id": "cc5b8481.c86ca8",
+        "type": "debug",
+        "z": "b2741b51.062988",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 930,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "55d3026b.d11dfc",
+        "type": "debug",
+        "z": "b2741b51.062988",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1030,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d4f1406.31680c",
+        "type": "debug",
+        "z": "b2741b51.062988",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 690,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b2c740aa.b7e0d",
+        "type": "debug",
+        "z": "b2741b51.062988",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 490,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f03f58f6.bb4d18",
+        "type": "comment",
+        "z": "b2741b51.062988",
+        "name": "Dropbox Backup",
+        "info": "",
+        "x": 140,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f84750e2.8059a",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "hassio": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open"
+    }
+]
