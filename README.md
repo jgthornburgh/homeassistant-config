@@ -1,6 +1,6 @@
 # Contents
 * [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config#lovelace-ui)
-* [HACS](https://github.com/jgthornburgh/homeassistant-config#add-ins)
+* [Add-Ins](https://github.com/jgthornburgh/homeassistant-config#add-ins)
 * [HACS](https://github.com/jgthornburgh/homeassistant-config#custom-components)
 * [Devices](https://github.com/jgthornburgh/homeassistant-config#devices)
   * [Hardware](https://github.com/jgthornburgh/homeassistant-config#hardware)
