@@ -27,6 +27,13 @@
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq.PNG)
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer.PNG)
 
+## Add-Ins
+* [Configurator](https://github.com/home-assistant/hassio-addons/tree/master/configurator)
+* [ESPHome](https://esphome.io/)
+* [Node-Red](https://github.com/hassio-addons/addon-node-red)
+* [Samba Share](https://www.home-assistant.io/addons/samba/)
+* [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
+
 ## HACS
 * [HOME ASSISTANT COMMUNITY STORE](https://github.com/hacs/integration)
 * [Custom Header](https://github.com/maykar/custom-header)
@@ -322,9 +329,6 @@
 * Vacume automation by issuing Alexa command
 
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/flow%20pics/vacume.PNG)
-
-### Backup
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/flow%20pics/backup.PNG)
 
 ### Misc
 * Christmas Tree Schedule
