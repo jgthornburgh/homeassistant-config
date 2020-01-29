@@ -155,6 +155,7 @@
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
     * Can take up to an hour to reconnect after restart
+    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/sm.jpg)
   
 ## Plugs
@@ -181,6 +182,7 @@
   
 * [Samsung SmartThings Plug](https://amzn.to/2GB1SLf)
   * Zigbee
+  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/st-plug.jpg)
 
 ## Siren
