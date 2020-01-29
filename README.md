@@ -15,33 +15,8 @@
 * [Node-Red](https://github.com/jgthornburgh/homeassistant-config#node-red-flows)
 
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
-* [Main](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main.PNG)
-  * Hidden from Boys
-* [Thermostats](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo.PNG)
-  * Hidden from Boys
-* [Lights](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/lights.PNG)
-  * Hidden from Boys
-* [Alarm](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm.PNG)
-  * Hidden from Boys
-* [Media](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media.PNG)
-  * Hidden from Boys
-* [Tesla](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/tesla.PNG)
-  * Hidden from Boys
-* [Solar](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/solar.PNG)
-  * Hidden from Boys
-* [Pool, Main](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool1.PNG)
-  * Hidden from Boys
-  * [Pool, Options](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool2.PNG) 
-  * [Pool, Timed Overides](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool3.PNG) 
-  * [Pool, Off](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool4.PNG)
-* [Tap List](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer.PNG)
-  * Hidden from Boys
-* [BBQ Controler](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq.PNG)
-  * Hidden from Boys
-* [HA Status](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/status.PNG)
-  * Hidden from everyone but Admin
-* [Boys UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/boys.PNG)
-  * Hidden from everyone but the Boys and Admin
+
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/lights-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/tesla-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/solar-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool1-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/status-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/boys-s.png)
  
 ## Add-Ins
 * [Configurator](https://github.com/home-assistant/hassio-addons/tree/master/configurator)
