@@ -34,7 +34,6 @@
   * [Pool, Options](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool2.PNG) 
   * [Pool, Timed Overides](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool3.PNG) 
   * [Pool, Off](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool4.PNG)
-  * Hidden from Boys
 * [Tap List](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer.PNG)
   * Hidden from Boys
 * [BBQ Controler](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq.PNG)
