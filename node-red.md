@@ -1,12 +1,12 @@
 # Node-Red Flows
-* Pool
-* Lights
-* Temp control
-* Alarm
-* Energy
-* Anouncements
-* Misc
-* BBQ
+* [Pool](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#pool)
+* [Lights](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#lights)
+* [Temp control](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#temp-control)
+* [Alarm](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#alarm)
+* [Energy](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#energy)
+* [Anouncements](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#anouncements)
+* [Misc](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#misc)
+* [BBQ](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#bbq)
 
 
 ### Pool
