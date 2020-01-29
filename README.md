@@ -54,6 +54,8 @@
 * [Elelabs ZigBee USB adapter](https://www.tindie.com/products/Elelabs/elelabs-zigbee-usb-adapter/)
 ### WiFi
 * [TP-Link Deco M5](https://amzn.to/36JcHqv)
+  * Usage monitoring is basically non-existant
+  * Limited number of address reservations 
 
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/deco.jpg)
 
