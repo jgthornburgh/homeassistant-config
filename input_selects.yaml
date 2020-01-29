@@ -1,0 +1,40 @@
+  wall_lights:
+    name: Patio Wall Lights
+    options:
+      - Auto
+      - "On"
+      - "Off"
+    initial: Auto   
+  string_lights:
+    name: Patio String Lights
+    options:
+      - Auto
+      - "On"
+      - "Off"
+    initial: Auto  
+  pump_setting:
+    name: Pool Pump
+    options:
+      - Auto
+      - Override
+      - High
+      - Medium
+      - Low
+      - "Off"
+    initial: Auto  
+  meat_temp:
+    name: Meat Temp
+    options:
+      - "Beef MdRare" 
+      - "Beef Medium" 
+      - "Chicken" 
+      - "Pork" 
+      - "Long Smoke" 
+    initial: "Beef Medium"
+  vacume:
+    name: House Vac
+    options:
+      - "On"
+      - Auto
+      - "Off"
+    initial: Auto 

@@ -1,0 +1,95 @@
+  - platform: template
+    sensors:
+      kitchen_motion:
+        friendly_name: "Boys Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level')|float > 200 }}"
+  - platform: template
+    sensors:
+      patio_motion:
+        friendly_name: "Patio Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level_2')|float > 200 }}"
+  - platform: template
+    sensors:
+      lr_motion:
+        friendly_name: "Living Room Motion"
+        device_class: motion
+        value_template: "{{ states('sensor.aeon_labs_zw100_multisensor_6_burglar')|float > 5 }}"
+  - platform: template
+    sensors:
+      people_home:
+        friendly_name: "House Occupied"
+        value_template: >-
+          {{ is_state('person.james_2', 'home')
+             or is_state('person.pingkham_2', 'home')
+             or is_state('person.xiphone', 'home')
+             or is_state('person.jacob', 'home')
+             or is_state('input_boolean.guests', 'on') }}
+  - platform: template
+    sensors:
+      nexus_10:
+        friendly_name: "Tablet Motion"
+        device_class: motion
+        value_template: "{{ is_state('switch.nexus_10_screen_sensor', 'on') }}"  
+  - platform: template
+    sensors:
+      motion_camera1:
+        friendly_name: Camera 1
+        device_class: motion
+        entity_id: camera.camera1
+        value_template: "{{ is_state('camera.camera1', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: template
+    sensors:
+      motion_camera2:
+        friendly_name: Camera 2
+        device_class: motion
+        entity_id: camera.camera2
+        value_template: "{{ is_state('camera.camera2', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: template
+    sensors:
+      motion_camera3:
+        friendly_name: Camera 3
+        device_class: motion
+        entity_id: camera.camera3
+        value_template: "{{ is_state('camera.camera3', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: template
+    sensors:
+      motion_camera4:
+        friendly_name: Camera 4
+        device_class: motion
+        entity_id: camera.camera4
+        value_template: "{{ is_state('camera.camera4', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: template
+    sensors:
+      motion_camera5:
+        friendly_name: Camera 5
+        device_class: motion
+        entity_id: camera.camera5
+        value_template: "{{ is_state('camera.camera5', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: template
+    sensors:
+      motion_camera6:
+        friendly_name: Camera 6
+        device_class: motion
+        entity_id: camera.camera6
+        value_template: "{{ is_state('camera.camera6', 'motion') }}"
+        delay_off: 
+          seconds: 5
+  - platform: trend
+    sensors:
+      temp_falling:
+        entity_id: sensor.pprobe
+        sample_duration: 450
+        min_gradient: -.05
+        device_class: cold

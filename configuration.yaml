@@ -1,10 +1,6 @@
 homeassistant:
-
   # Customization file
   customize: !include customize.yaml
-
-# Show links to resources in log and frontend
-#introduction:
 
 # Enables the frontend
 frontend:
@@ -25,9 +21,9 @@ frontend:
       primary-background-color: "#121212"
     
       # Text
-      primary-text-color: "#FFFFFFDE"
-      secondary-text-color: "#FFFFFF99"
-      disabled-text-color: "#FFFFFF61"
+      primary-text-color: "#FFFFDE"
+      secondary-text-color: "#d2dad8"
+      disabled-text-color: "#b81c1c"
       sidebar-selected-text-color: "var(--accent)"
     
       # Card
@@ -39,7 +35,7 @@ frontend:
       ha-card-box-shadow: "0px 5px 5px rgba(0,0,0,0.3)"
     
       # Colours
-      primary-color: "#1D1D1D"
+      primary-color: "#737373"
       secondary-background-color: "#1D1D1D"
       accent-color: "var(--accent)"
       dark-primary-color: "var(--accent)"
@@ -91,27 +87,24 @@ frontend:
       lumo-tertiary-text-color: "var(--secondary-text-color)"
       lumo-primary-contrast-color: "var(--primary-text-color)"
 
-
 # Enables configuration UI
 config:
 
-
-browser_mod:
-
-# enable the recorder component (optional)
+# browser_mod:
+      
 recorder:
   purge_keep_days: 7
   purge_interval: 1
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - zwave
+      - zone
+      - group
+      - camera
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -138,6 +131,8 @@ device_tracker:
 
 system_health:
 
+hassio:
+
 weather:
   - platform: darksky
     api_key: !secret ds_a
@@ -156,35 +151,68 @@ tuya:
 map:
 
 zone:
-  - name: Merced College
-    latitude: ***
-    longitude: ***
+  - name: Work
+    latitude: 
+    longitude: 
     radius: 400
     icon: mdi:school
     
-  - name: ***
-    latitude: ***
-    longitude: ***
+  - name: RiverPark
+    latitude: 36.847744
+    longitude: -119.791128
     radius: 400
     icon: mdi:store
     
   - name: VA
-    latitude: ***
-    longitude: ***  
+    latitude: 36.773336
+    longitude: -119.779766  
     radius: 400
     icon: mdi:hospital-building
 
+  - name: School A
+    latitude:  
+    longitude:  
+    radius: 200
+    icon: mdi:school
+
+  - name: School Y
+    latitude:  
+    longitude:  
+    radius: 200
+    icon: mdi:school
+
+  - name: School F
+    latitude:  
+    longitude:  
+    radius: 600
+    icon: mdi:school
+
 # This will override the default home zone
   - name: Home
-    latitude: ***
-    longitude: ***
+    latitude:  
+    longitude:  
     radius: 150
     icon: mdi:home
       
+proximity:
+  home_xiphone:
+    devices:
+      - device_tracker.google_maps_ 
+    tolerance: 50
+    unit_of_measurement: ft
+  home_pingkham:
+    devices:
+      - device_tracker.google_maps_ 
+    tolerance: 50
+    unit_of_measurement: ft    
+  home_james:
+    devices:
+      - device_tracker.google_maps_ 
+    tolerance: 50
+    unit_of_measurement: ft 
+
 # Track the sun
 sun:
-
-hassio:
 
 #ecovacs:
 #  username: !secret ev_u
@@ -192,168 +220,31 @@ hassio:
 #  country: us
 #  continent: na
 
-
 shopping_list:
 
 tesla:
   username: !secret te_u
   password: !secret te_p
 
-
 switch:
   - platform: switchmate
-    mac: '***'
+    mac: ' '
   - platform: switchmate
-    mac: '***'
-    name: kitchen lights
+    mac: ' '
+    name: Kitchen Lights
     flip_on_off: true
-    
+  - platform: switchmate
+    mac: ' '
+    name: Dining Room
+
 light:
   - platform: flux_led
     devices:
       192.168.0.130:
         name: bar lights
-  - platform: switch
-    name: Ceiling Lights
-    entity_id: switch.switchmate
-  - platform: switch
-    name: String Lights
-    entity_id: switch.patio_string
-  - platform: switch
-    name: Kitchen Lights
-    entity_id: switch.kitchen_lights    
      
-    
-#alexa_media:
- # accounts:
-  #  - email:  !secret am_u
-   #   password: !secret am_p
-    #  url: "amazon.com"
+mobile_app:
 
-    
-ring:
-  username: !secret ri_u
-  password: !secret ri_p
-  
-binary_sensor:
-  - platform: ring
-  - platform: template
-    sensors:
-      kitchen_motion:
-        friendly_name: "Boys Motion"
-        device_class: motion
-        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level')|float > 200 }}"
-  - platform: template
-    sensors:
-      patio_motion:
-        friendly_name: "Patio Motion"
-        device_class: motion
-        value_template: "{{ states('sensor.linear_wapirz_1_motion_sensor_alarm_level_2')|float > 200 }}"
-  - platform: template
-    sensors:
-      lr_motion:
-        friendly_name: "Living Room Motion"
-        device_class: motion
-        value_template: "{{ states('sensor.aeon_labs_zw100_multisensor_6_burglar')|float > 5 }}"
-  - platform: template
-    sensors:
-      people_home:
-        friendly_name: "House Occupied"
-        value_template: >-
-          {{ is_state('person.james_2', 'home')
-             or is_state('person.pingkham_2', 'home')
-             or is_state('person.xiphone', 'home')
-             or is_state('person.jacob', 'home')
-             or is_state('input_boolean.guests', 'on') }}
-  - platform: template
-    sensors:
-      nexus_10:
-        friendly_name: "Tablet Motion"
-        device_class: motion
-        value_template: "{{ is_state('switch.nexus_10_screen_sensor', 'on') }}"  
-        
-input_boolean:
-  guests:
-    name: House Guests
-    icon: mdi:account-multiple
-  alarm_triggered:
-    name: Alarm Triggered
-    icon: mdi:alarm-check
-  tts_nexus:
-    name: Nexus TTS
-    icon: mdi:voice
-  tts_blu:
-    name: blu TTS
-    icon: mdi:voice
-  robot:
-    name: Robot
-    icon: mdi:robot-vacuum-variant
-    initial: off
-  ac_mode:
-    name: AC Mode
-    initial: on
-  porch_auto:
-    name: Auto Porch Light
-    initial: on
-  patio_auto:
-    name: Auto Patio Lights 
-    initial: on
-  lr_auto:
-    name: Auto Living Room Lights
-    initial: on
-  hall_auto:
-    name: Auto Hall Light
-    initial: on
-  hm_on:
-    name: Heatermeter On
-    initial: on
-  m_tv_timer:
-    name: Master TV Timer
-    initial: off
-      
-input_select:
-  wall_lights:
-    name: Patio Wall Lights
-    options:
-      - Auto
-      - "On"
-      - "Off"
-    initial: Auto   
-  string_lights:
-    name: Patio String Lights
-    options:
-      - Auto
-      - "On"
-      - "Off"
-    initial: Auto  
-  pump_setting:
-    name: Pool Pump
-    options:
-      - Auto
-      - Override
-      - High
-      - Medium
-      - Low
-      - "Off"
-    initial: Auto  
-  meat_temp:
-    name: Meat Temp
-    options:
-      - "Beef MdRare" 
-      - "Beef Medium" 
-      - "Chicken" 
-      - "Pork" 
-      - "Long Smoke" 
-    initial: "Beef Medium"
-  vacume:
-    name: House Vac
-    options:
-      - "On"
-      - Auto
-      - "Off"
-    initial: Auto  
-
-    
 input_text:
   tts_anouncement:
     name: Anouncement
@@ -361,9 +252,6 @@ input_text:
   pool_timer_manual:
     name: Pump Time Remaining
     initial: 0
-#  rest_cmd_url:
-#    name: URL for RESTful Command
-#    initial: http://192.168.0.119/luci/admin/lm/set?sp=240
   elec_rate:
     name: Electric Billing Use
     initial: Off Peak
@@ -386,11 +274,6 @@ input_text:
     name: 'Charge amount'
     initial: 0 
     
-#rest_command:
-#  rest_cmd:
-#    url: "{{ states('input_text.rest_cmd_url') }}"
-    
-
 input_number:
   povertime:
     name: Override Time
@@ -398,54 +281,35 @@ input_number:
     min: 1
     max: 24
     step: 1
-
-    
-proximity:
-  home_xiphone:
-    ignored_zones:
-      - work
-    devices:
-      - device_tracker.google_maps***
-    tolerance: 50
-    unit_of_measurement: ft
-  home_pingkham:
-    ignored_zones:
-      - work
-    devices:
-      - device_tracker.google_maps***
-    tolerance: 50
-    unit_of_measurement: ft    
-  home_james:
-    ignored_zones:
-      - work
-    devices:
-      - device_tracker.google_maps***
-    tolerance: 50
-    unit_of_measurement: ft          
-      
+  pittemp:
+    name: Pit Temperature
+    initial: 250
+    min: 200
+    max: 500
+    step: 25
+    unit_of_measurement: "F"
+  pid_factor:
+    name: PID Factor
+    initial: .5
+    min: .1
+    max: 1
+    step: .1
+          
 notify:
   - platform: pushbullet
     name: pushbullet
     api_key: !secret pb_a
-#  - platform: alexa_media
-#    name: alexa_media
   - platform: lannouncer
     name: nexus
-    host: 192.168.0.132
+    host:  
   - platform: lannouncer
     name: blu
-    host: 192.168.0.139
-    
-#android_ip_webcam:
-#  - host: 192.168.0.139
-    
-camera:
-  - platform: ring
+    host:  
 
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: *****
+    code: !secret a_c
     pending_time: 10
     delay_time: 20
     trigger_time: 1000
@@ -455,19 +319,18 @@ alarm_control_panel:
       pending_time: 0
       delay_time: 0
 
-#Text to speech
 tts:
   - platform: google_translate
 
 person:
 
-# Cloud
 cloud:
-  google_actions:
-  alexa:
-
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
+camera: !include cameras.yaml
+binary_sensor: !include binary_sensors.yaml
+input_select: !include input_selects.yaml        
+input_boolean: !include input_booleans.yaml

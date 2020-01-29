@@ -1,0 +1,66 @@
+
+
+  - platform: generic
+    name: ptz
+    still_image_url: 
+
+
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera1
+    stream: sub
+    protocol: rtmp
+    channel: 0
+    scan_interval: 10
+    
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera2
+    stream: sub
+    protocol: rtmp
+    channel: 1
+    scan_interval: 10
+    
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera3
+    stream: sub
+    protocol: rtmp
+    channel: 2
+    scan_interval: 10
+    
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera4
+    stream: sub
+    protocol: rtmp
+    channel: 3
+    scan_interval: 10
+    
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera5
+    stream: sub
+    protocol: rtsp
+    channel: 4
+    scan_interval: 10
+    
+  - platform: reolink_dev
+    host: !secret rl_i
+    username: !secret rl_u
+    password: !secret rl_p
+    name: camera6
+    stream: sub
+    protocol: rtsp
+    channel: 5
+    scan_interval: 10

@@ -1,0 +1,26 @@
+lv_rm_lights: 
+  name: Living Room Lights
+  entities:
+    - switch.ceiling_lights
+    - light.bar_lights
+    - switch.kitchen_lights
+    - light.sink
+    - switch.dining_room
+garage_lights: 
+  name: Garage Lights
+  entities:
+    - light.g_tesla
+    - light.g_loft
+patio_lights: 
+  name: Patio Lights
+  entities:
+    - light.m_patio
+    - light.w_patio
+    - light.walkway
+    - light.e_patio
+    - switch.patio_string
+bathroom: 
+  name: Bathroom Lights
+  entities:
+    - light.mb_white
+    - light.mb_color

@@ -6,22 +6,16 @@
       - 'date_time'
   - platform: darksky
     api_key: !secret ds_a
-    latitude: *** 
-    longitude: ***
+    latitude: 36.752320 
+    longitude: -119.711599
     forecast:
       - 0
       - 1
       - 2
-      - 3
     hourly_forecast:
       - 0
       - 1
       - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
     monitored_conditions:
       - summary
       - hourly_summary
@@ -34,7 +28,7 @@
       - temperature_high
       - temperature_low
       - moon_phase
-  - platform: ring
+#  - platform: ring
   - platform: rest
     name: envoy2
     json_attributes:
@@ -42,7 +36,7 @@
       - wattHoursSevenDays
       - wattHoursLifetime
       - wattsNow
-    resource: http://192.168.0.103/api/v1/production
+    resource: http://  /api/v1/production
   - platform: template
     sensors:
       wtoday:
@@ -75,39 +69,19 @@
     name: wnowstats
     max_age:
       hours: 24
-  - platform: rest
-    name: hm_set
-    resource: http://192.168.0.129/luci/lm/hmstatus
-    value_template: "{{value_json['set']}}"
-  - platform: rest
-    name: hm_pit
-    resource: http://192.168.0.129/luci/lm/hmstatus
-    value_template: "{{value_json.temps[0].c }}"
-  - platform: rest
-    name: hm_probe1
-    resource: http://192.168.0.129/luci/lm/hmstatus
-    value_template: "{{value_json.temps[1].c }}"
-  - platform: rest
-    name: hm_probe2
-    resource: http://192.168.0.129/luci/lm/hmstatus
-    value_template: "{{value_json.temps[2].c }}"
-  - platform: rest
-    name: hm_probe3
-    resource: http://192.168.0.129/luci/lm/hmstatus
-    value_template: "{{value_json.temps[3].c }}"
   - platform: moon
   - platform: template
     sensors:
       pumpstatus:
         friendly_name: "Pool Pump Staus"
         value_template: >-
-          {% if is_state('switch.p_h', 'on') %}
+          {% if is_state('switch.pool_high', 'on') %}
             High
-          {% elif is_state('switch.p_m', 'on') %}
+          {% elif is_state('switch.pool_med', 'on') %}
             Medium
-          {% elif is_state('switch.p_l', 'on') %}
+          {% elif is_state('switch.pool_low', 'on') %}
             Low
-          {% elif is_state('switch.p_o', 'on') %}
+          {% elif is_state('switch.pool_over', 'on') %}
             Override   
           {% else %}
             off
@@ -117,13 +91,13 @@
       pumpstatusnum:
         friendly_name: "Pool Pump Staus numerical"
         value_template: >-
-          {% if is_state('switch.p_h', 'on') %}
+          {% if is_state('switch.pool_high', 'on') %}
             3
-          {% elif is_state('switch.p_m', 'on') %}
+          {% elif is_state('switch.pool_med', 'on') %}
             2
-          {% elif is_state('switch.p_l', 'on') %}
+          {% elif is_state('switch.pool_low', 'on') %}
             1
-          {% elif is_state('switch.p_o', 'on') %}
+          {% elif is_state('switch.p_over', 'on') %}
             4   
           {% else %}
             0
@@ -132,6 +106,8 @@
     sensors:
       target_temp:
         friendly_name: "Meat Target Temp"
+        device_class: temperature
+        unit_of_measurement: 'F'
         value_template: >-
           {% if is_state('input_select.meat_temp', 'Beef MdRare') %}
             135
@@ -151,9 +127,9 @@
       main_ac:
         friendly_name: "Main A/C Status"
         value_template: >-
-          {% if is_state_attr('climate.main_cooling','hvac_action', 'cooling') %}
+          {% if is_state_attr('climate.main','hvac_action', 'cooling') %}
             A/C On
-          {% elif is_state_attr('climate.main_heating','hvac_action', 'heating') %}
+          {% elif is_state_attr('climate.main','hvac_action', 'heating') %}
             Heat On
           {%- else -%}
             Idle
@@ -163,9 +139,9 @@
       room_ac:
         friendly_name: "Room A/C Status"
         value_template: >-
-          {% if is_state_attr('climate.room_cooling','hvac_action', 'cooling') %}
+          {% if is_state_attr('climate.rooms','hvac_action', 'cooling') %}
             A/C On
-          {% elif is_state_attr('climate.room_heating','hvac_action', 'heating') %}
+          {% elif is_state_attr('climate.rooms','hvac_action', 'heating') %}
             Heat On
           {%- else -%}
             Idle
@@ -176,8 +152,6 @@
         friendly_name: 'Temperature Diference'
         value_template: '{{(states.sensor.linear_wapirz_1_motion_sensor_temperature_2.state| float) - (states.sensor.linear_wapirz_1_motion_sensor_temperature.state| float)}}'
         unit_of_measurement: "F"
-  - platform: ohmconnect
-    id: !secret oc_a
   - platform: template
     sensors:
       n_sent:
@@ -192,3 +166,16 @@
         friendly_name: 'GB Total'
         value_template: "{{ ((states('sensor.m5_bytes_sent') | float / 1073741824) + (states('sensor.m5_bytes_received') | float / 1073741824)) | round(2)  }}"
         unit_of_measurement: "GB"
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
+      - type: memory_use_percent
+      - type: disk_free
+        arg: /
+      - type: processor_use
+      - type: last_boot
+  - platform: uptime
+    name: Time Online
+    unit_of_measurement: hours

@@ -1,11 +1,3 @@
-switch.p_h:
-  friendly_name: Pool Pump - High
-switch.p_m:
-  friendly_name: Pool Pump - Med
-switch.p_l:
-  friendly_name: Pool Pump - Low
-switch.p_o:
-  friendly_name: Pool Pump - Override
 binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_5:
   device_class: door
 binary_sensor.linear_wadwaz_1_door_window_sensor_sensor_4:
@@ -24,6 +16,12 @@ binary_sensor.master_motion:
   device_class: motion
 binary_sensor.office_motion:
   device_class: motion
+person.pingkham_2:
+  entity_picture: 
+person.xiphone:
+  entity_picture: 
+person.james_2:
+  entity_picture: 
 binary_sensor.people_home:
   device_class: occupancy
 light.ge_appliances_zll_light_00015079_1:
@@ -31,7 +29,9 @@ light.ge_appliances_zll_light_00015079_1:
 sensor.pumpstatusnum:
   unit_of_measurement: '%'
 input_text.ch_total:
-  unit_of_measurement: 'Wh'
+  unit_of_measurement: Wh
+device_tracker.google_maps:
+  friendly_name: google 
 binary_sensor.ecolink_motion_detector_sensor:
   device_class: motion
 binary_sensor.linear_nortek_security_control_llc_wadwaz_1_door_window_sensor_sensor_2:

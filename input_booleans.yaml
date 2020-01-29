@@ -1,0 +1,44 @@
+  guests:
+    name: House Guests
+    icon: mdi:account-multiple
+  alarm_triggered:
+    name: Alarm Triggered
+    icon: mdi:alarm-check
+  tts_nexus:
+    name: Nexus TTS
+    icon: mdi:voice
+  tts_blu:
+    name: blu TTS
+    icon: mdi:voice
+  robot:
+    name: Robot
+    icon: mdi:robot-vacuum-variant
+    initial: off
+  ac_mode:
+    name: AC Mode
+    initial: on
+  porch_auto:
+    name: Auto Porch Light
+    initial: on
+  patio_auto:
+    name: Auto Patio Lights 
+    initial: on
+  lr_auto:
+    name: Auto Living Room Lights
+    initial: on
+  hall_auto:
+    name: Auto Hall Light
+    initial: on
+  m_tv_timer:
+    name: TV Timer
+    initial: off
+  office_auto:
+    name: Auto office Light
+    initial: on
+  bbq_info:
+    name: BBQ Info
+    initial: off
+    icon: mdi:information-outline  
+  bbq_on:
+    name: BBQ Cooking
+    initial: off

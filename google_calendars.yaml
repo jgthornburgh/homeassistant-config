@@ -1,0 +1,63 @@
+
+- cal_id: @gmail.com
+  entities:
+  - device_id: family_calendar
+    ignore_availability: true
+    name: family_calendar
+    track: true
+  - device_id: school
+    ignore_availability: true
+    name: School
+    track: true
+    search: "school"
+
+- cal_id: en.usa#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_united_states
+    ignore_availability: true
+    name: Holidays in United States
+    track: true
+
+- cal_id: @group.calendar.google.com
+  entities:
+  - device_id: pool
+    ignore_availability: true
+    name: Pool
+    track: true
+  - device_id: pool_high
+    ignore_availability: true
+    name: Pool high
+    track: true    
+    search: pool-high
+  - device_id: pool_medium
+    ignore_availability: true
+    name: Pool medium
+    track: true    
+    search: pool-med
+  - device_id: pool_low
+    ignore_availability: true
+    name: Pool low
+    track: true    
+    search: pool-low
+  - device_id: pool_robot
+    ignore_availability: true
+    name: Robot
+    track: true    
+    search: robot
+
+- cal_id: @group.calendar.google.com
+  entities:
+  - device_id: ev_a
+    ignore_availability: true
+    name: EV-A
+    track: true
+  - device_id: rate_peak
+    ignore_availability: true
+    name: Peak
+    track: true    
+    search: peak
+  - device_id: rate_partial_peak
+    ignore_availability: true
+    name: Partial Peak
+    track: true    
+    search: ppeak    
