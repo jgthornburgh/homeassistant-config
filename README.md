@@ -233,7 +233,7 @@
   * 20-5MP Bullet Camera (2X)
   * 420-5MP Dome Camera (2X)
 * [Reolink 420-5MP Dome Camera](https://amzn.to/2LKFEcO) (2X)
-* [Reolink Custom Component](https://github.com/fwestenberg/reolink
+* [Reolink Custom Component](https://github.com/fwestenberg/reolink)
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cameras.jpg)
 
 ***
