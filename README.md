@@ -1,7 +1,9 @@
 # Contents
 * [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config#lovelace-ui)
+* [Node-Red](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md)
 * [Add-Ins](https://github.com/jgthornburgh/homeassistant-config#add-ins)
 * [HACS](https://github.com/jgthornburgh/homeassistant-config#hacs)
+* [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
 * [Devices](https://github.com/jgthornburgh/homeassistant-config#devices)
   * [Hardware](https://github.com/jgthornburgh/homeassistant-config#hardware)
   * [Lights](https://github.com/jgthornburgh/homeassistant-config#lights)  
@@ -11,13 +13,13 @@
   * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
   * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#bbq-controller-still-under-development)
-* [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
-* [Node-Red](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md)
 
+***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
 
 ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/lights-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/tesla-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/solar-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool1-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/status-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/boys-s.png)
  
+***
 ## Add-Ins
 * [Configurator](https://github.com/home-assistant/hassio-addons/tree/master/configurator)
 * [ESPHome](https://esphome.io/)
@@ -38,6 +40,25 @@
 * [Node Red](https://github.com/zachowj/hass-node-red)
   * Enabale and disable flows from HA
   * Create sensors from NR
+  
+***
+# Integrations
+* [HA Cloud](https://www.nabucasa.com/)
+* [Shopping List](https://www.home-assistant.io/integrations/shopping_list/)
+* [DarkSky](https://www.home-assistant.io/integrations/weather.darksky/)
+  * For Lovelace Weather Card
+* [DarkSky Sensor](https://www.home-assistant.io/integrations/darksky/)
+* [Tuya](https://www.home-assistant.io/integrations/tuya/)
+* [TP-Link Kasa](https://www.home-assistant.io/integrations/tplink/)
+* [Flux LED](https://www.home-assistant.io/integrations/flux_led/)
+* Zwave
+* Zigbee
+* [Google Calander](https://www.home-assistant.io/integrations/calendar.google/)
+* [Goole Location](https://www.home-assistant.io/integrations/google_maps/)
+* [ESPHome](https://esphome.io/)
+* [Enphase Envoy](https://www.home-assistant.io/integrations/enphase_envoy/)
+* [Tesla](https://www.home-assistant.io/integrations/tesla/)
+* [Ring](https://www.home-assistant.io/integrations/ring/)
 
 ***
 # Devices
@@ -259,43 +280,8 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cameras.jpg)
 
 ***
-# Integrations
-### [HA Cloud](https://www.nabucasa.com/)
 
-### [Shopping List](https://www.home-assistant.io/integrations/shopping_list/)
 
-### [DarkSky](https://www.home-assistant.io/integrations/weather.darksky/)
-* For Lovelace Weather Card
-
-### [DarkSky Sensor](https://www.home-assistant.io/integrations/darksky/)
-
-  `code`
-
-### [Tuya](https://www.home-assistant.io/integrations/tuya/)
-
-### [TP-Link Kasa](https://www.home-assistant.io/integrations/tplink/)
-
-### [Flux LED](https://www.home-assistant.io/integrations/flux_led/)
-
-### Zwave
-
-### Zigbee
-
-### [Google Calander](https://www.home-assistant.io/integrations/calendar.google/)
-
-  `code`
-
-### [Goole Location](https://www.home-assistant.io/integrations/google_maps/)
-
-### [ESPHome](https://esphome.io/)
-
-### [Enphase Envoy](https://www.home-assistant.io/integrations/enphase_envoy/)
-
-### [Tesla](https://www.home-assistant.io/integrations/tesla/)
-
-### [Ring](https://www.home-assistant.io/integrations/ring/)
-
-### Template Sensors
 
 ***
 # Comming up
