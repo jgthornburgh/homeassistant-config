@@ -86,9 +86,9 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/kassa.jpg)
 ### Color
 * [LED Strip](https://amzn.to/2NpIRQm) 
-  * Flux_LED
   * WiFi
-  
+  * Flux_LED
+    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/led%20strip.jpg)
 * [Smart LED Light Bulb](https://amzn.to/2K04yo5)
   * WiFi
@@ -130,10 +130,12 @@
  
 ### Multisensor
 * [Aeotec ZW100 Multisensor 6](https://amzn.to/2qMCRso)
- 
+  * Z-Wave
+  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ms6.jpg)
 * [Ring](https://amzn.to/32lQ8EY) 
-
+  * WiFi
+  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ring.jpg)
 
 ## Switches
@@ -152,7 +154,7 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/4ch.jpg)
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
-   
+    * Can take up to an hour to reconnect after restart
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/sm.jpg)
   
 ## Plugs
@@ -172,9 +174,14 @@
   * Z-Wave
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/dimmer.jpg)
-* [Aoycocr Mini WIFI Switch](https://amzn.to/2PyLaAt) (4x)
- 
+* [Aoycocr Mini WIFI Plug](https://amzn.to/2PyLaAt) (4x)
+  * WIFI
+  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/plug.jpg)
+  
+* [Samsung SmartThings Plug](https://amzn.to/2GB1SLf)
+  * Zigbee
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/st-plug.jpg)
 
 ## Siren
 * [Linear WA105DBZ-1 Siren](https://amzn.to/2Q346Jc)
@@ -202,6 +209,7 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/hvac.jpg)  
 ## Vacuume
 * [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
+  * WiFi
 
 ## BBQ Controller (Still under development)
 * [NodeMCU ESP32](https://amzn.to/37jXDiS) 
@@ -230,10 +238,14 @@
   
 ## Cameras (yet to be installed)
 * [Reolink 8CH 5MP PoE Home Security Camera System](https://amzn.to/2YKa0Bt)
+  * POE
   * 20-5MP Bullet Camera (2X)
   * 420-5MP Dome Camera (2X)
 * [Reolink 420-5MP Dome Camera](https://amzn.to/2LKFEcO) (2X)
+  * POE
 * [Reolink Custom Component](https://github.com/fwestenberg/reolink)
+  * POE
+  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cameras.jpg)
 
 ***
