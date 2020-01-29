@@ -152,6 +152,12 @@
   * Tasmota
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/4ch.jpg)
+
+* [Centralite - Model 3130](https://centralite.com/products/smart-switch)
+  * Zigbee
+   
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/3130.jpg)
+
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
     * Can take up to an hour to reconnect after restart
@@ -180,7 +186,7 @@
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/plug.jpg)
   
-* [Samsung SmartThings Plug](https://amzn.to/2GB1SLf)
+* [Samsung SmartThings Plug](https://amzn.to/2GB1SLf) (2x)
   * Zigbee
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/st-plug.jpg)
