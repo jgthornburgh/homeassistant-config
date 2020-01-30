@@ -2,6 +2,8 @@
 * [Main](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main.PNG) 
   * Hidden from Boys 
   * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main.PNG)
+  * PM View
+  * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/dark.PNG)
 * [Thermostats](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo.PNG) 
    * Hidden from Boys
    * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo.PNG)
@@ -11,6 +13,9 @@
 * [Alarm](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm.PNG)
   * Hidden from Boys
   * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm.PNG)
+* [Cameras](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/cameras.PNG)
+  * Hidden from Boys
+  * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/cameras.PNG)
 * [Media](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media.PNG)
   * Hidden from Boys
   * ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media.PNG)
