@@ -17,7 +17,7 @@
 ***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
 
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/lights-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/tesla-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/solar-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool1-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/status-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/boys-s.png)
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/main-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/dark-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/thermo-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/lights-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/alarm-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/cameras-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/media-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/tesla-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/solar-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/pool1-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/beer-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/bbq-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/status-s.png) ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/ui/boys-s.png)
  
 ***
 ## Add-Ins
@@ -172,7 +172,7 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.PNG)
 * [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
   * WiFi
-  * Tasmota
+  * ESPHome
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/4ch.jpg)
 
