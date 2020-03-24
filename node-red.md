@@ -8,6 +8,11 @@
 * [Misc](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#misc)
 * [BBQ](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md#bbq)
 
+## Installed Nodes
+* [String](https://flows.nodered.org/node/node-red-contrib-string)
+* [Light Scheduler](https://flows.nodered.org/node/node-red-contrib-light-scheduler)
+* [Weekly Scheduler](https://flows.nodered.org/node/node-red-contrib-simple-weekly-scheduler)
+* [PID](https://flows.nodered.org/node/node-red-contrib-pid)
 
 ### Pool
 * Schedule
