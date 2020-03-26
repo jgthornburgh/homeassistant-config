@@ -13,7 +13,8 @@
   * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
   * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#bbq-controller-still-under-development)
-
+  * [Camera](https://github.com/jgthornburgh/homeassistant-config#cameras-yet-to-be-installed)
+  
 ***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
 
