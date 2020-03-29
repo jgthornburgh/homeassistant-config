@@ -13,7 +13,7 @@
   * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
   * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#bbq-controller-still-under-development)
-  * [Camera](https://github.com/jgthornburgh/homeassistant-config#cameras-yet-to-be-installed)
+  * [Cameras](https://github.com/jgthornburgh/homeassistant-config#cameras)
   
 ***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
@@ -268,7 +268,7 @@
    
       ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-display.PNG)
   
-## Cameras (yet to be installed)
+## Cameras
 * [Reolink 8CH 5MP PoE Home Security Camera System](https://amzn.to/2YKa0Bt)
   * POE
   * 20-5MP Bullet Camera (2X)
