@@ -64,10 +64,13 @@
 ***
 # Devices
 ## Hardware
-### Pi
-* [R-Pi 3B](https://amzn.to/2rnnl6c)
+### Server
+* [Mini PC](https://amzn.to/2VPIz9I)
+  * Celeron N3060 (up to 2.48 GHz)
+  * 4GB DDR3
+  * 256 GB SSD
+  * Proxmox 
 
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/pi.jpg)
 ### Z-Wave Stick
 * [Aeotec Z-Stick V5](https://amzn.to/2NqHHUJ)
 
@@ -116,13 +119,19 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/led%20strip.jpg)
 * [Smart LED Light Bulb](https://amzn.to/2K04yo5)
   * WiFi
+  * ESPHome
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cbulb.jpg)
-* [Aoycocr(6500K) 7.5W A19](https://amzn.to/2Cm3gPI) (2x)
+* [Aoycocr Bulbs](https://amzn.to/2Cm3gPI) (4x)
   * WiFi
+  * ESPHome
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cbulb2.jpg)
   
+ * [LOHAS BR20 Flood Bulbs](https://amzn.to/35gyoxL) (4x) 
+   * WiFi
+   * ESPHome
+   
 ## Sensors
 ### Door/window
 * [Linear WADWAZ-1](https://amzn.to/2Q2Zsv7) (7x)
@@ -194,7 +203,8 @@
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tplink.jpg)
 * [Amzdest Outdoor Smart Outlet](https://amzn.to/2K0sffR)
-  * Z-Wave
+  * WiFi
+  * ESPHome
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/outdoor.jpg)
 * [Leviton DZPA1-1LW, Appliance Module](https://amzn.to/2PWmjIE)
@@ -207,6 +217,7 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/dimmer.jpg)
 * [Aoycocr Mini WIFI Plug](https://amzn.to/2PyLaAt) (4x)
   * WIFI
+  * ESPHome
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/plug.jpg)
   
@@ -273,13 +284,15 @@
   * POE
   * 20-5MP Bullet Camera (2X)
   * 420-5MP Dome Camera (2X)
-* [Reolink 420-5MP Dome Camera](https://amzn.to/2LKFEcO) (2X)
+* [Reolink 420-5MP Dome Camera](https://amzn.to/3bRqM7m) (3X)
   * POE
 * [Reolink Custom Component](https://github.com/fwestenberg/reolink)
   * POE
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cameras.jpg)
 
+* [Wyze Cam](https://amzn.to/2KGBmCr)
+  * For 3D Printer
 ***
 
 
