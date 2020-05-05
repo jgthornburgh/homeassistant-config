@@ -1,19 +1,21 @@
 # Contents
-* [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config#lovelace-ui)
+* [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#lovelace-ui)
 * [Node-Red](https://github.com/jgthornburgh/homeassistant-config/blob/master/node-red.md)
-* [Add-Ins](https://github.com/jgthornburgh/homeassistant-config#add-ins)
-* [HACS](https://github.com/jgthornburgh/homeassistant-config#hacs)
-* [Integrations](https://github.com/jgthornburgh/homeassistant-config#integrations)
-* [Devices](https://github.com/jgthornburgh/homeassistant-config#devices)
-  * [Hardware](https://github.com/jgthornburgh/homeassistant-config#hardware)
-  * [Lights](https://github.com/jgthornburgh/homeassistant-config#lights)  
-  * [Sensors](https://github.com/jgthornburgh/homeassistant-config#sensors)
-  * [Switches](https://github.com/jgthornburgh/homeassistant-config#switches)
-  * [Plugs](https://github.com/jgthornburgh/homeassistant-config#plugs)
-  * [Siren](https://github.com/jgthornburgh/homeassistant-config#siren)
-  * [Thermostat](https://github.com/jgthornburgh/homeassistant-config#thermostats)
-  * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config#bbq-controller-still-under-development)
-  * [Cameras](https://github.com/jgthornburgh/homeassistant-config#cameras)
+* [Add-Ins](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#add-ins)
+* [HACS](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#hacs)
+* [Integrations](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#integrations)
+* [Devices](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#devices)
+  * [Hardware](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#hardware)
+  * [Lights](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#lights)  
+  * [Sensors](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#sensors)
+  * [Switches](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#switches)
+  * [Plugs](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#plugs)
+  * [Siren](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#siren)
+  * [Thermostat](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#thermostats)
+  * [Garage](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#garage)
+  * [Pool Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#pool-controller)
+  * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#bbq-controller)
+  * [Cameras](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#cameras)
   
 ***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
@@ -70,6 +72,8 @@
   * 4GB DDR3
   * 256 GB SSD
   * Proxmox 
+ 
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/mini_pc.png)
 
 ### Z-Wave Stick
 * [Aeotec Z-Stick V5](https://amzn.to/2NqHHUJ)
@@ -119,18 +123,21 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/led%20strip.jpg)
 * [Smart LED Light Bulb](https://amzn.to/2K04yo5)
   * WiFi
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/smart_bulb.yaml) 
+  * my9231
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cbulb.jpg)
 * [Aoycocr Bulbs](https://amzn.to/2Cm3gPI) (4x)
   * WiFi
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_bulb.yaml) 
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cbulb2.jpg)
   
- * [LOHAS BR20 Flood Bulbs](https://amzn.to/35gyoxL) (4x) 
+ * [OHLUX BR30 Flood Bulbs](https://amzn.to/3b4eSpx) (4x) 
    * WiFi
-   * ESPHome
+   * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_bulb.yaml) 
+   
+   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/flood.png)
    
 ## Sensors
 ### Door/window
@@ -152,15 +159,10 @@
   * WiFi
   * [HC-SR501 Pir Motion IR Sensor](https://amzn.to/36FJJrA)
   * [DHT22 Temp/Humidity](https://amzn.to/32sKfpq)
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/multi_sensor.yaml) 
   
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room.PNG)
-
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
-  
- ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/kitchen.PNG?)
-
- 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/multi.png)
+ ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/room1.PNG)
 ### Multisensor
 * [Aeotec ZW100 Multisensor 6](https://amzn.to/2qMCRso)
   * Z-Wave
@@ -172,20 +174,6 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/ring.jpg)
 
 ## Switches
-* D1 Mini
-  * WiFi
-  * [Relay Shield](https://amzn.to/2NqGlcB)
-  * ESPHome
-  
-![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage1.PNG)
-  
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.PNG)
-* [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
-  * WiFi
-  * ESPHome
-   
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/4ch.jpg)
-
 * [Centralite - Model 3130](https://centralite.com/products/smart-switch)
   * Zigbee
    
@@ -204,9 +192,10 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tplink.jpg)
 * [Amzdest Outdoor Smart Outlet](https://amzn.to/2K0sffR)
   * WiFi
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_outdoor_switch.yaml)
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/outdoor.jpg)
+
 * [Leviton DZPA1-1LW, Appliance Module](https://amzn.to/2PWmjIE)
   * Z-Wave
  
@@ -217,7 +206,7 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/dimmer.jpg)
 * [Aoycocr Mini WIFI Plug](https://amzn.to/2PyLaAt) (4x)
   * WIFI
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_plug.yaml) 
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/plug.jpg)
   
@@ -253,8 +242,29 @@
 ## Vacuume
 * [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
   * WiFi
-
-## BBQ Controller (Still under development)
+  
+## Garage 
+### Opener
+* D1 Mini
+  * WiFi
+  * [Relay Shield](https://amzn.to/2NqGlcB)
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage.yaml) 
+  
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/garage1.PNG)
+  
+### Car Tracker
+* [D1 Mini](https://amzn.to/36HSGAK)
+  * WiFi
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/car.yaml) 
+  
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/car.png)
+  
+## Pool Controller
+* [Sonoff 4Ch Pro](https://amzn.to/36HSGAK)
+  * WiFi
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/pool.yaml) 
+  
+## BBQ Controller
 * [NodeMCU ESP32](https://amzn.to/37jXDiS) 
   * WiFi
   * [128x64 OLED Display SSD1306](https://amzn.to/36j2FuX)
@@ -263,21 +273,9 @@
   * [Pit and Meat Probe ET732](https://amzn.to/30Ij3Uo)
   * [Meat Probes (2x) ET732](https://amzn.to/2tFc42s)
   * [1.5Mohm Resistor](https://amzn.to/2NNBRMI) (4x)
-  * ESPHome
+  * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq.yaml) 
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/bbq.jpg)
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/bbq-display1.jpg)
-    * Intro
-   
-      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-intro.PNG)
-    * For each Probe
-   
-      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-probe.PNG) 
-    * Call for measurement 
-   
-      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-measure.PNG)
-    * Display
-   
-      ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/bbq-display.PNG)
   
 ## Cameras
 * [Reolink 8CH 5MP PoE Home Security Camera System](https://amzn.to/2YKa0Bt)
@@ -293,6 +291,9 @@
 
 * [Wyze Cam](https://amzn.to/2KGBmCr)
   * For 3D Printer
+  
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/wyze.png)
+  
 ***
 
 
