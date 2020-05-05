@@ -87,7 +87,12 @@
   * Limited number of address reservations 
 
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/deco.jpg)
+* [Aveloki WiFi Range Extender](https://amzn.to/2YzQIkg)
 
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/wifi.png)
+* [TP-Link N300 WiFi Extender](https://amzn.to/3c7Z1rl)
+
+![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/wifi1.png)
 ## Display
 * Nexus 10
   * WiFi
@@ -288,7 +293,7 @@
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/wyze.png)
 
-## Failed Devices
+## Devices that didn't work out
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
   * Can take up to an hour to reconnect after restart
@@ -303,6 +308,8 @@
    
  * [LOHAS BR20 LED Smart Wi-Fi Light Bulbs 60W Equivalent, 2700K-6000K](https://amzn.to/2KYWML4)
    * tuya convert couldn't connect
+ * [Reolink 3MP HD Indoor WiFi Pet Camera Home Security System, E1](https://amzn.to/35APBlR)
+   * could not get into HA
    
 ***
 
