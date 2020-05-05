@@ -1,0 +1,219 @@
+esphome:
+  name: bbq
+  platform: ESP32
+  board: nodemcu-32s
+
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.49
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bbq Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+
+sensor:
+  - platform: wifi_signal
+    name: "BBQ WiFi Signal Sensor"
+    update_interval: 60s
+    
+  - platform: homeassistant
+    id: hm_set
+    entity_id: input_number.pittemp
+    internal: true
+  - platform: homeassistant
+    id: hm_mt
+    entity_id: sensor.target_temp
+    internal: true
+  - platform: homeassistant
+    id: hm_pit
+    entity_id: sensor.hm_pit
+    internal: true
+    
+  - platform: ntc
+    sensor: r1_sensor
+    calibration:
+      b_constant: 4397.87
+      reference_temperature: 25°C
+      reference_resistance: .99MOhm
+    name: probe1  
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    unit_of_measurement: "°F"
+    id: probe1
+  - platform: resistance
+    id: r1_sensor
+    sensor: v1_sensor
+    configuration: DOWNSTREAM
+    resistor: 1.463MOhm
+    name: r1 Sensor
+  - platform: adc
+    id: v1_sensor
+    pin: GPIO34
+    attenuation: 11db
+    name: v1 sensor
+    update_interval: never
+    filters: 
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 1    
+    
+  - platform: ntc
+    sensor: r2_sensor
+    calibration:
+      b_constant: 4397.87
+      reference_temperature: 25°C
+      reference_resistance: .99MOhm
+    name: probe2  
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    unit_of_measurement: "°F"
+    id: probe2
+  - platform: resistance
+    id: r2_sensor
+    sensor: v2_sensor
+    configuration: DOWNSTREAM
+    resistor: 1.460MOhm
+    name: r2 Sensor
+  - platform: adc
+    id: v2_sensor
+    pin: GPIO35
+    attenuation: 11db
+    name: v2 sensor
+    update_interval: never
+    filters: 
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 1
+    
+  - platform: ntc
+    sensor: r3_sensor
+    calibration:
+      b_constant: 4397.87
+      reference_temperature: 25°C
+      reference_resistance: .99MOhm
+    name: probe3  
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    unit_of_measurement: "°F"
+    id: probe3
+  - platform: resistance
+    id: r3_sensor
+    sensor: v3_sensor
+    configuration: DOWNSTREAM
+    resistor: 1.494MOhm
+    name: r3 Sensor
+  - platform: adc
+    id: v3_sensor
+    pin: GPIO32
+    attenuation: 11db
+    name: v3 sensor
+    update_interval: never
+    filters: 
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 1
+          
+  - platform: ntc
+    sensor: rp_sensor
+    calibration:
+      b_constant: 4397.87
+      reference_temperature: 25°C
+      reference_resistance: .99MOhm
+    name: probep  
+    filters:
+      - lambda: return x * (9.0/5.0) + 32.0;
+    unit_of_measurement: "°F"
+    id: probep
+  - platform: resistance
+    id: rp_sensor
+    sensor: vp_sensor
+    configuration: DOWNSTREAM
+    resistor: 1.464MOhm
+    name: rp Sensor
+  - platform: adc
+    id: vp_sensor
+    pin: GPIO33
+    attenuation: 11db
+    name: vp sensor
+    update_interval: never
+    filters: 
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 1
+    
+switch:
+  - platform: gpio
+    pin: GPIO12
+    id: ntc_vcc
+
+  - platform: gpio
+    name: "Blower Switch"
+    pin: GPIO4
+    inverted: no
+    id: s_blower
+    
+interval:
+  - interval: 80s
+    then:
+      - switch.turn_on: ntc_vcc
+      - component.update: vp_sensor
+      - switch.turn_off: ntc_vcc
+      - delay: 20s
+      - switch.turn_on: ntc_vcc
+      - component.update: v3_sensor
+      - switch.turn_off: ntc_vcc  
+      - delay: 20s
+      - switch.turn_on: ntc_vcc
+      - component.update: v2_sensor
+      - switch.turn_off: ntc_vcc 
+      - delay: 20s
+      - switch.turn_on: ntc_vcc
+      - component.update: v1_sensor
+      - switch.turn_off: ntc_vcc 
+    
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+
+font:
+  - file: "ARLRDBD.ttf"
+    id: my_font
+    size: 20
+    
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    reset_pin: GPIO0
+    address: 0x3C
+    lambda: |-
+      it.filled_rectangle(69, 22, 128, 64);
+      it.printf(0, 0, id(my_font), TextAlign::TOP_LEFT, "p1 %.0f", id(probe1).state);
+      // probe 1
+      it.printf(0, 21, id(my_font), TextAlign::TOP_LEFT, "p2 %.0f", id(probe2).state);
+      // probe 2
+      it.printf(0, 42, id(my_font), TextAlign::TOP_LEFT, "p3 %.0f", id(probe3).state);
+      // probe 3
+      it.printf(128, 0, id(my_font), TextAlign::TOP_RIGHT, "T %.0f", id(hm_mt).state);
+      // target
+      it.printf(128, 21, id(my_font), COLOR_OFF, TextAlign::TOP_RIGHT, "P %.0f", id(probep).state);
+      // pit
+      it.printf(128, 42, id(my_font), COLOR_OFF, TextAlign::TOP_RIGHT, "S %.0f", id(hm_set).state);
+      // pit set
+
+      

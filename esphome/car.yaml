@@ -1,0 +1,37 @@
+esphome:
+  name: car
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: 
+  password:
+  manual_ip:
+    static_ip: 192.168.0.57
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+  power_save_mode: none
+  fast_connect: true
+  
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Car Status"
+    id: c_status
+    
+    
+sensor:
+  - platform: wifi_signal
+    name: "Car WiFi Signal Sensor"
+    id: c_wifi
+    update_interval: 5s
+
+    
+

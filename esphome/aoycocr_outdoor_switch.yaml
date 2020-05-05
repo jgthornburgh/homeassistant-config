@@ -1,0 +1,71 @@
+esphome:
+  name: outdoor_switch
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.64
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bbq Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: "Office WiFi Signal Sensor"
+    update_interval: 60s
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 1
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Power Button"
+    on_press:
+      - switch.toggle: relay1
+
+  - platform: status
+    name: "Status"
+
+switch:
+  - platform: gpio
+    id: red_led
+    pin:
+      number: GPIO03
+      inverted: true
+
+  - platform: gpio
+    name: "Robot"
+    pin: GPIO12
+    id: relay1
+
+  - platform: gpio
+    name: "Fountain"
+    pin: GPIO14
+    id: relay2
+
+    # Turn off red LED to show blue when turned on
+    on_turn_on:
+      - switch.turn_off: red_led
+
+    # Turns on the red LED once the plug is turned off. Stock plug doesn't do this, to restore normal behavior remove the on_turn_on and on_turn_off
+    # blocks.
+    on_turn_off:
+      - switch.turn_on: red_led

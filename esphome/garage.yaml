@@ -4,12 +4,23 @@ esphome:
   board: d1_mini_lite
 
 wifi:
-  ssid: '111'
-  password: '111'
+  networks:
+  - ssid: 	
+    password: 	
+  - ssid: 	
+    password: 	
   manual_ip:
     static_ip: 192.168.0.50
     gateway: 192.168.0.1
     subnet: 255.255.255.0
+  power_save_mode: none
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "garage Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
 
 # Enable logging
 logger:
@@ -36,7 +47,7 @@ switch:
     name: "Large Remote"
     turn_on_action:
     - switch.turn_on: large_gr_switch
-    - delay: 500ms
+    - delay: 1500ms
     - switch.turn_off: large_gr_switch
   - platform: gpio
     name: "sm_garage_switch"

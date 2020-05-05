@@ -1,0 +1,63 @@
+esphome:
+  name: light
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.70
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "light Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:	
+
+captive_portal:
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: "Office WiFi Signal Sensor"
+    update_interval: 60s
+    
+output:
+  - platform: esp8266_pwm
+    id: output_red
+    pin: GPIO14
+  - platform: esp8266_pwm
+    id: output_green
+    pin: GPIO12
+  - platform: esp8266_pwm
+    id: output_blue
+    pin: GPIO5
+  - platform: esp8266_pwm
+    id: output_white
+    pin: GPIO15
+
+light:
+  - platform: rgbw
+    name: "rgbw_e27_01"
+    red: output_red
+    green: output_green
+    blue: output_blue
+    white: output_white
+    effects:
+      # Use default parameters:
+      - random:
+      - strobe:
+      - flicker:
+
+    # Ensure the light turns on by default if the physical switch is actuated.
+    restore_mode: ALWAYS_ON

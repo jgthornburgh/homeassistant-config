@@ -1,0 +1,49 @@
+esphome:
+  name: sensor
+  platform: ESP8266
+  board: d1_mini_lite
+
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.54
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "sensor Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    pin: D2
+    name: "Kitchen Motion"
+    device_class: motion
+    
+sensor:
+  - platform: wifi_signal
+    name: "Kitchen WiFi Signal Sensor"
+    update_interval: 60s
+  - platform: dht
+    pin: D1
+    model: AM2302
+    temperature:
+      name: "Kitchen Temperature"
+      filters:
+        - lambda: return x * (9.0/5.0) + 32.0;
+      unit_of_measurement: "°F"
+    humidity:
+      name: "Kitchen Humidity"
+    update_interval: 60s
+    

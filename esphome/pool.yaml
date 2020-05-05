@@ -1,0 +1,99 @@
+esphome:
+  name: pool
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.58
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bbq Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
+  
+api:
+
+logger:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: "Pool WiFi Signal Sensor"
+    update_interval: 60s
+
+binary_sensor:
+- platform: gpio
+  pin:
+    number: GPIO0
+    mode: INPUT_PULLUP
+    inverted: True
+  name: "high button"
+  on_press:
+    - switch.toggle: relay_1
+- platform: gpio
+  pin:
+    number: GPIO9
+    mode: INPUT_PULLUP
+    inverted: True
+  name: "med button"
+  on_press:
+    - switch.toggle: relay_2
+- platform: gpio
+  pin:
+    number: GPIO10
+    mode: INPUT_PULLUP
+    inverted: True
+  name: "low button"
+  on_press:
+    - switch.toggle: relay_3
+- platform: gpio
+  pin:
+    number: GPIO14
+    mode: INPUT_PULLUP
+    inverted: True
+  name: "o button"
+  on_press:
+    - switch.toggle: relay_4
+- platform: status
+  name: "pump relays"
+
+switch:
+- platform: gpio
+  name: "pool_high"
+  pin: GPIO12
+  id: relay_1
+  restore_mode: ALWAYS_OFF
+- platform: gpio
+  name: "pool_med"
+  pin: GPIO5
+  id: relay_2
+  restore_mode: ALWAYS_OFF
+- platform: gpio
+  name: "pool_low"
+  pin: GPIO4
+  id: relay_3
+  restore_mode: ALWAYS_OFF
+- platform: gpio
+  name: "pool_over"
+  pin: GPIO15
+  id: relay_4
+  restore_mode: ALWAYS_OFF
+
+output:
+- platform: esp8266_pwm
+  id: blue_led
+  pin: GPIO13
+  inverted: True
+
+light:
+- platform: monochromatic
+  name: "pump light"
+  output: blue_led

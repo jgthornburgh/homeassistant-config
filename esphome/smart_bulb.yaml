@@ -1,0 +1,70 @@
+esphome:
+  name: light
+  platform: ESP8266
+  board: esp01_1m
+
+    
+wifi:
+  ssid: 
+  password: 
+  manual_ip:
+    static_ip: 192.168.0.78
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "light Fallback Hotspot"
+    password: "IQnvgR3mxjH4"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+sensor:
+  - platform: wifi_signal
+    name: "Office color WiFi Signal Sensor"
+    update_interval: 60s
+    
+my9231:
+  data_pin: GPIO13  # GPIO13 for AiLight
+  clock_pin: GPIO15  # GPIO15 for AiLight
+  num_channels: 4
+  num_chips: 2
+  bit_depth: 8
+
+output:
+  - platform: my9231
+    id: output_blue
+    channel: 1
+  - platform: my9231
+    id: output_red
+    channel: 3
+  - platform: my9231
+    id: output_green
+    channel: 2
+  - platform: my9231
+    id: output_white
+    channel: 0
+
+light:
+  - platform: rgbw
+    name: office_color
+    red: output_red
+    green: output_green
+    blue: output_blue
+    white: output_white
+    effects:
+      # Use default parameters:
+      - random:
+      - strobe:
+      - flicker:
+
+    # Ensure the light turns on by default if the physical switch is actuated.
+    restore_mode: ALWAYS_ON
