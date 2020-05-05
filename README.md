@@ -101,7 +101,7 @@
   * [Low Profile Charger](https://amzn.to/2oWbtXU)
   * [Mount](https://amzn.to/2NTvd7b)
   * [Magnetic Cable](https://amzn.to/2NQUyON)
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tablet.jpg)
+  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/tablet.JPG)
 ## Lights
 ### White
 * [GE Link](https://amzn.to/2qth5cK) (5x)
@@ -307,10 +307,17 @@
    * 2 became unresponsive after ESPhome OTA updates
    
  * [LOHAS BR20 LED Smart Wi-Fi Light Bulbs 60W Equivalent, 2700K-6000K](https://amzn.to/2KYWML4)
-   * tuya convert couldn't connect
+   * tuya-convert couldn't connect
  * [Reolink 3MP HD Indoor WiFi Pet Camera Home Security System, E1](https://amzn.to/35APBlR)
-   * could not get into HA
-   
+   * could not connect to HA
+ * [UnionCam Q5 1080P HD Wireless WiFi Security Camera](https://amzn.to/2z94AaC)
+   * could not connect to HA
+ * [BN-LINK Smart WiFi Heavy Duty Outdoor Outlet](https://amzn.to/2L4Aacg)
+   * Not supported by the Tuya Integreation
+   * Would try again with Tuya-convert
+ * [WiFi Smart Night Light - JACKYLED 2 Outlet Extender](https://amzn.to/2xB6akY)
+   * Not supported by the Tuya Integreation
+   * Would try again with Tuya-convert
 ***
 
 
