@@ -297,15 +297,11 @@
 * [Switchmate](https://amzn.to/2NNGYMl) (2x)
   * Bluetooth
   * Can take up to an hour to reconnect after restart
-  * Worked fine but witht e delays for a while, then intermittently, then stopped working all togeahter. 
-    
-  ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/sm.jpg)
-  
+  * Worked fine but witht e delays for a while, then intermittently, then stopped working all togeahter.
  * [Smart Light Bulbs, Aoycocr BR30 Dimmable LED Light Bulbs, 720 Lumen, Tunable White 2700K - 9000K](https://amzn.to/2KYWML4) 
    * way too blue
    * not bright
-   * 2 became unresponsive after ESPhome OTA updates
-   
+   * 2 became unresponsive after ESPhome OTA updates  
  * [LOHAS BR20 LED Smart Wi-Fi Light Bulbs 60W Equivalent, 2700K-6000K](https://amzn.to/2KYWML4)
    * tuya-convert couldn't connect
  * [Reolink 3MP HD Indoor WiFi Pet Camera Home Security System, E1](https://amzn.to/35APBlR)
