@@ -16,7 +16,7 @@
   * [Pool Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#pool-controller)
   * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#bbq-controller)
   * [Cameras](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#cameras)
-  
+  * [Devices that didn't work](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#devices-that-didnt-work-out)
 ***
 # [Lovelace UI](https://github.com/jgthornburgh/homeassistant-config/blob/master/lovelace.md)
 
