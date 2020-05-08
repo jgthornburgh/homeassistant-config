@@ -1,0 +1,493 @@
+[
+    {
+        "id": "5eaa9558.0f1e9c",
+        "type": "server-state-changed",
+        "z": "2751c782.f5ae58",
+        "name": "charging",
+        "server": "f7c12331.d033a",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "switch.temperance_charger_switch",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "x": 80,
+        "y": 840,
+        "wires": [
+            [
+                "991357ac.905668"
+            ]
+        ]
+    },
+    {
+        "id": "991357ac.905668",
+        "type": "switch",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 840,
+        "wires": [
+            [
+                "460cba9e.3d9ee4"
+            ],
+            [
+                "56bf80b5.d2d1a"
+            ]
+        ]
+    },
+    {
+        "id": "460cba9e.3d9ee4",
+        "type": "api-current-state",
+        "z": "2751c782.f5ae58",
+        "name": "start charge",
+        "server": "f7c12331.d033a",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "sensor.temperance_battery_sensor",
+        "state_type": "str",
+        "state_location": "s_charge",
+        "override_payload": "flow",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 760,
+        "wires": [
+            [
+                "11ad518f.56f5ae",
+                "b3b8209f.26c1"
+            ]
+        ]
+    },
+    {
+        "id": "56bf80b5.d2d1a",
+        "type": "api-current-state",
+        "z": "2751c782.f5ae58",
+        "name": "end charge",
+        "server": "f7c12331.d033a",
+        "version": "1",
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "sensor.temperance_battery_sensor",
+        "state_type": "str",
+        "state_location": "e_charge",
+        "override_payload": "flow",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 430,
+        "y": 880,
+        "wires": [
+            [
+                "3faaa05e.f379d",
+                "b09c553f.d7bc08",
+                "c6a06b85.8cf218"
+            ]
+        ]
+    },
+    {
+        "id": "11ad518f.56f5ae",
+        "type": "debug",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 590,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "b3b8209f.26c1",
+        "type": "api-call-service",
+        "z": "2751c782.f5ae58",
+        "name": "save",
+        "server": "f7c12331.d033a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "input_text",
+        "service": "set_value",
+        "entityId": "input_text.ch_start",
+        "data": "{\"value\":\"{{flow.s_charge}}\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 570,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "397a1bfe.4dfbd4",
+        "type": "inject",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 740,
+        "wires": [
+            [
+                "460cba9e.3d9ee4"
+            ]
+        ]
+    },
+    {
+        "id": "3faaa05e.f379d",
+        "type": "moment",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "topic": "",
+        "input": "",
+        "inputType": "date",
+        "inTz": "America/Los_Angeles",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "YYYY/MM/DD",
+        "locale": "C",
+        "output": "date",
+        "outputType": "flow",
+        "outTz": "America/Los_Angeles",
+        "x": 640,
+        "y": 880,
+        "wires": [
+            [
+                "6e587230.8e4fec",
+                "bec1d664.5f0b38"
+            ]
+        ]
+    },
+    {
+        "id": "b09c553f.d7bc08",
+        "type": "api-call-service",
+        "z": "2751c782.f5ae58",
+        "name": "save",
+        "server": "f7c12331.d033a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "input_text",
+        "service": "set_value",
+        "entityId": "input_text.ch_end",
+        "data": "{\"value\":\"{{flow.e_charge}}\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 590,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6a06b85.8cf218",
+        "type": "api-current-state",
+        "z": "2751c782.f5ae58",
+        "name": "home",
+        "server": "f7c12331.d033a",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "home",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "device_tracker.temperance_location_tracker",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 530,
+        "y": 960,
+        "wires": [
+            [
+                "768fff6.b703f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6e587230.8e4fec",
+        "type": "function",
+        "z": "2751c782.f5ae58",
+        "name": "calc",
+        "func": "// get the latest values of pid/temperature from context - default to 0 if not yet set\nvar date = flow.get(\"date\");\nvar start = flow.get(\"s_charge\") || 0;\nvar end = flow.get(\"e_charge\") || 0;\nvar chargedt = (end-start)*750;\npayload={date,start,end,chargedt};\nmsg.payload=payload;\nmsg.charged = (end-start)*750;\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 770,
+        "y": 940,
+        "wires": [
+            [
+                "591f1612.82b9e8",
+                "f54a7f18.2986b",
+                "359b350f.d664ea"
+            ]
+        ]
+    },
+    {
+        "id": "bec1d664.5f0b38",
+        "type": "debug",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 830,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "768fff6.b703f",
+        "type": "api-call-service",
+        "z": "2751c782.f5ae58",
+        "name": "unlock charger",
+        "server": "f7c12331.d033a",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "lock",
+        "service": "unlock",
+        "entityId": "lock.temperance_charger_door_lock",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 640,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "591f1612.82b9e8",
+        "type": "csv",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": false,
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "x": 870,
+        "y": 1000,
+        "wires": [
+            [
+                "e4b15acf.e9aa48",
+                "b17e070c.c172f8"
+            ]
+        ]
+    },
+    {
+        "id": "f54a7f18.2986b",
+        "type": "debug",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 930,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "359b350f.d664ea",
+        "type": "api-call-service",
+        "z": "2751c782.f5ae58",
+        "name": "save",
+        "server": "f7c12331.d033a",
+        "version": "1",
+        "debugenabled": false,
+        "service_domain": "input_text",
+        "service": "set_value",
+        "entityId": "input_text.ch_total",
+        "data": "{\"value\":\"{{charged}}\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 930,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e37a2a90.d34308",
+        "type": "inject",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 1040,
+        "wires": [
+            [
+                "768fff6.b703f"
+            ]
+        ]
+    },
+    {
+        "id": "e4b15acf.e9aa48",
+        "type": "debug",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1050,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "b17e070c.c172f8",
+        "type": "file",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "filename": "/share/charge.log",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1090,
+        "y": 1060,
+        "wires": [
+            [
+                "322831b5.60812e"
+            ]
+        ]
+    },
+    {
+        "id": "322831b5.60812e",
+        "type": "debug",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1270,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "c784fd6b.a3239",
+        "type": "inject",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 900,
+        "wires": [
+            [
+                "4b4b8bd6.f9e3e4"
+            ]
+        ]
+    },
+    {
+        "id": "4b4b8bd6.f9e3e4",
+        "type": "file",
+        "z": "2751c782.f5ae58",
+        "name": "",
+        "filename": "/share/charge.log",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 210,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7c12331.d033a",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    }
+]
