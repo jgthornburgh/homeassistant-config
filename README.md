@@ -240,7 +240,7 @@
   * Z-Wave
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/hvac.jpg)  
-## Vacuume
+## Vacuum
 * [DEEBOT N79S ]( https://amzn.to/2rl7AMZ)
   * WiFi
   
