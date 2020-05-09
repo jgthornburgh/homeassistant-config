@@ -12,6 +12,8 @@
   * [Plugs](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#plugs)
   * [Siren](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#siren)
   * [Thermostat](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#thermostats)
+  * [Vacuum](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#vacuum)
+
   * [Garage](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#garage)
   * [Pool Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#pool-controller)
   * [BBQ Controller](https://github.com/jgthornburgh/homeassistant-config/blob/master/README.md#bbq-controller)
