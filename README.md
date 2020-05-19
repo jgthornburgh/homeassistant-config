@@ -128,13 +128,13 @@
   * Flux_LED
     
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/led%20strip.jpg)
-* [Smart LED Light Bulb](https://amzn.to/2K04yo5)
+* [Iotton Bulb](https://amzn.to/2K04yo5)
   * WiFi
   * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/smart_bulb.yaml) 
   * my9231
   
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/cbulb.jpg)
-* [Aoycocr Bulbs](https://amzn.to/2Cm3gPI) (4x)
+* [Aoycocr Q0CM Bulbs](https://amzn.to/2Cm3gPI) (4x)
   * WiFi
   * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_bulb.yaml) 
   
@@ -142,7 +142,7 @@
   
  * [OHLUX BR30 Flood Bulbs](https://amzn.to/3b4eSpx) (4x) 
    * WiFi
-   * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/esphome/aoycocr_bulb.yaml) 
+   * [ESPHome](https://github.com/jgthornburgh/homeassistant-config/blob/master/flood-lights.yaml) 
    
    ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/flood.png)
    
