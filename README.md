@@ -226,6 +226,9 @@
   * WiFi
     
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/echo.jpg)
+### [Amazon Echo Flex](https://amzn.to/2HWdKvC)
+  * WiFi
+
 ### [Amazon Fire Stick](https://amzn.to/2p2bR7q) (3x)
   * WiFi
     
