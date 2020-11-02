@@ -83,6 +83,9 @@
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/zstick.jpg)
 ### Zigbee Stick
 * [Elelabs ZigBee USB adapter](https://www.tindie.com/products/Elelabs/elelabs-zigbee-usb-adapter/)
+### Wyze Bridge
+* [Wyze Bridge](https://wyze.com/wyze-sense.html)
+
 ### WiFi
 * [TP-Link Deco M5](https://amzn.to/36JcHqv)
   * Usage monitoring is basically non-existant
@@ -152,12 +155,19 @@
   * Z-Wave
    
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/door.jpg)
+  
+* [Wyze Contact](https://wyze.com/wyze-sense.html) (4x)
+  * Wyze
 
 ### Motion
 * [Ecolink Motion Detector](https://amzn.to/2Nqtsiu)
   * Z-Wave
  
   ![text](https://github.com/jgthornburgh/homeassistant-config/blob/master/device%20images/eco%20motion.jpg)
+  
+* [Wyze Motion Detector](https://wyze.com/wyze-sense.html) (2x)
+  * Wyze
+  
 ### Motion/Temp
 * [Linear WAPIRZ-1](https://amzn.to/2WRkpul) (2x)
  
