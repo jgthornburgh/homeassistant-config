@@ -51,4 +51,21 @@ Create Lock  template for door locks
           target:
             entity_id: input_boolean.tesla_locks
             
+Create Device Tracker automation
+
+````
+alias: tesla gps
+trigger:
+  - platform: state
+    entity_id: 'sensor.tesla_lat, sensor.tesla_lon'
+action:
+  - service: device_tracker.see
+    data_template:
+      dev_id: tesla
+      gps:
+        - '{{ states(''sensor.tesla_lat'') }}'
+        - '{{ states(''sensor.tesla_lon'') }}'
+mode: single
+````
+            
 
